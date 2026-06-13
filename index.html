@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Joey Stevense — Agentic AI Engineer (@joeystdio)</title>
+<meta name="description" content="Joey Stevense (@joeystdio) — Lead software engineer with 15+ years shipping production systems, now building agentic AI that actually ships. Based in Bangkok." />
+
+<!-- Open Graph / social preview -->
+<meta property="og:title" content="Joey Stevense — Agentic AI Engineer" />
+<meta property="og:description" content="15+ years building production software. Now building agentic AI systems that ship — multi-agent workflows, MCP tooling, and the engineering that makes them reliable." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #07080d;
+    --bg-soft: #0d0f17;
+    --panel: #11131d;
+    --border: #1e2230;
+    --text: #e7e9f0;
+    --muted: #8a90a6;
+    --c1: #22d3ee;   /* cyan */
+    --c2: #7c5cff;   /* violet */
+    --c3: #f472b6;   /* pink */
+    --accent-grad: linear-gradient(115deg, var(--c1), var(--c2) 55%, var(--c3));
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* animated background glow */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(40rem 40rem at 15% -10%, rgba(124,92,255,.18), transparent 60%),
+      radial-gradient(35rem 35rem at 100% 0%, rgba(34,211,238,.14), transparent 55%),
+      radial-gradient(30rem 30rem at 60% 120%, rgba(244,114,182,.12), transparent 60%);
+    z-index: -2;
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes drift { to { transform: translate3d(0, -3%, 0) scale(1.05); } }
+
+  /* subtle grid */
+  body::after {
+    content: "";
+    position: fixed; inset: 0; z-index: -1; opacity: .4;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
+            mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .grad-text {
+    background: var(--accent-grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .mono { font-family: var(--mono); }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(7,8,13,.6);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-family: var(--mono); font-weight: 700; letter-spacing: .5px; }
+  .brand .dot { color: var(--c1); }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .nav-links a { color: var(--muted); transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  @media (max-width: 680px) { .nav-links { display: none; } }
+
+  /* ---------- HERO ---------- */
+  header { padding: 90px 0 70px; }
+  .kicker {
+    font-family: var(--mono); font-size: 13px; color: var(--c1);
+    letter-spacing: 1px; margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .kicker .pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: #2ee6a6;
+    box-shadow: 0 0 0 0 rgba(46,230,166,.6); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(46,230,166,.6); }
+    70% { box-shadow: 0 0 0 10px rgba(46,230,166,0); }
+    100% { box-shadow: 0 0 0 0 rgba(46,230,166,0); }
+  }
+  h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1.04; font-weight: 800; letter-spacing: -1.5px; }
+  .hero-sub { font-size: clamp(1.05rem, 2.4vw, 1.35rem); color: var(--muted); max-width: 640px; margin-top: 22px; }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+
+  .terminal {
+    margin-top: 34px; max-width: 560px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+    font-family: var(--mono); font-size: 14px; overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,.8);
+  }
+  .term-bar { display: flex; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--border); }
+  .term-bar span { width: 11px; height: 11px; border-radius: 50%; }
+  .term-bar span:nth-child(1){ background:#ff5f56; }
+  .term-bar span:nth-child(2){ background:#ffbd2e; }
+  .term-bar span:nth-child(3){ background:#27c93f; }
+  .term-body { padding: 16px 18px; min-height: 78px; }
+  .term-body .prompt { color: var(--c1); }
+  .term-body .path { color: var(--c2); }
+  #typed { color: var(--text); }
+  .cursor { display: inline-block; width: 9px; height: 17px; background: var(--c1); margin-left: 2px; vertical-align: middle; animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 12px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
+    border: 1px solid var(--border); color: var(--text); transition: all .2s;
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--c2); }
+  .btn.primary { background: var(--accent-grad); color: #07080d; border: none; }
+  .btn.primary:hover { box-shadow: 0 14px 30px -10px rgba(124,92,255,.6); }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 64px 0; }
+  .sec-label { font-family: var(--mono); font-size: 13px; color: var(--c2); letter-spacing: 1px; margin-bottom: 12px; }
+  .sec-title { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.5px; margin-bottom: 28px; }
+  .lead { font-size: 1.08rem; color: var(--muted); max-width: 720px; }
+  .lead strong { color: var(--text); }
+
+  /* focus pills */
+  .pills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .pill {
+    font-family: var(--mono); font-size: 13px; color: var(--text);
+    padding: 9px 15px; border: 1px solid var(--border); border-radius: 999px;
+    background: var(--bg-soft);
+  }
+  .pill b { color: var(--c1); font-weight: 700; }
+
+  /* projects */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 20px; }
+  .card {
+    position: relative; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 16px; padding: 26px; transition: transform .25s, border-color .25s;
+    overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0; padding: 1px; border-radius: 16px;
+    background: var(--accent-grad); opacity: 0;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; transition: opacity .25s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card:hover::before { opacity: 1; }
+  .card .tag { font-family: var(--mono); font-size: 11px; letter-spacing: .5px; text-transform: uppercase; color: var(--c1); }
+  .card h3 { font-size: 1.35rem; font-weight: 700; margin: 8px 0 10px; }
+  .card p { color: var(--muted); font-size: .96rem; }
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .stack span { font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 4px 9px; border-radius: 6px; }
+  .status { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-family:var(--mono); color:#2ee6a6; margin-top:14px; }
+  .status .d { width:7px;height:7px;border-radius:50%;background:#2ee6a6; }
+
+  /* experience timeline */
+  .tl { border-left: 2px solid var(--border); margin-left: 6px; padding-left: 26px; display: flex; flex-direction: column; gap: 30px; }
+  .tl-item { position: relative; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -33px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%; background: var(--bg);
+    border: 2px solid var(--c2);
+  }
+  .tl-item.now::before { background: var(--accent-grad); border: none; box-shadow: 0 0 12px var(--c2); }
+  .tl-date { font-family: var(--mono); font-size: 12px; color: var(--c1); }
+  .tl-item h4 { font-size: 1.12rem; font-weight: 700; margin: 4px 0 2px; }
+  .tl-item .co { color: var(--muted); font-size: .95rem; }
+  .tl-item p { color: var(--muted); font-size: .94rem; margin-top: 8px; }
+
+  /* skills */
+  .skillcols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 22px; }
+  .skillcols h4 { font-family: var(--mono); font-size: 13px; color: var(--c2); margin-bottom: 12px; letter-spacing: .5px; }
+  .skillcols ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .skillcols li { font-size: 13px; color: var(--text); background: var(--bg-soft); border: 1px solid var(--border); padding: 6px 11px; border-radius: 7px; }
+
+  /* contact */
+  .contact-box { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 44px; text-align: center; }
+  .contact-box h2 { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 800; margin-bottom: 14px; }
+  .contact-box p { color: var(--muted); max-width: 520px; margin: 0 auto 26px; }
+
+  footer { border-top: 1px solid var(--border); padding: 30px 0 50px; color: var(--muted); font-size: 13px; }
+  .foot-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .foot-inner .mono { color: var(--muted); }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .editnote { font-size:11px; color:#5a6075; font-family:var(--mono); margin-top:18px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">joey<span class="dot">stdio</span></div>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#focus">focus</a>
+      <a href="#projects">projects</a>
+      <a href="#experience">experience</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="kicker reveal"><span class="pulse"></span> AGENTIC AI ENGINEER · BANGKOK 🇹🇭</div>
+    <h1 class="reveal">Joey Stevense.<br /><span class="grad-text">Building agents that ship.</span></h1>
+    <p class="hero-sub reveal">
+      <strong>15+ years</strong> shipping production software as a lead engineer.
+      Today I build AI into real systems — <strong>LLM extraction, embeddings, and RAG</strong> —
+      and I'm going deeper on <strong>agentic AI</strong>: multi-agent workflows, MCP tooling,
+      and the engineering that takes agents from demo to production.
+    </p>
+
+    <div class="terminal reveal">
+      <div class="term-bar"><span></span><span></span><span></span></div>
+      <div class="term-body">
+        <span class="prompt">joeystdio@bkk</span>:<span class="path">~</span>$ <span id="typed"></span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <div class="cta reveal">
+      <a class="btn primary" href="#projects">View projects →</a>
+      <a class="btn" href="https://github.com/joeystdio" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/joeystevense/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:joeystdio@gmail.com">Email</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label reveal">// about</div>
+    <h2 class="sec-title reveal">Lead engineer, lifelong nerd, perpetual learner.</h2>
+    <p class="lead reveal">
+      I'm a Dutch software engineer based in <strong>Bangkok</strong>, where I've been living and working for the
+      last two and a half years. Over a 15-year career I've led teams and architectures across telephony systems
+      handling thousands of calls a day, recruitment platforms serving large enterprises, and worldwide logistics
+      apps — mostly in <strong>.NET, Angular, and microservices on Azure</strong>, with a long tail of C++, Java,
+      and everything in between.
+    </p>
+    <p class="lead reveal" style="margin-top:18px;">
+      What's consistent across all of it: I like hard problems, I ship, and I never stop learning.
+      Right now that curiosity is pointed squarely at <strong>agentic AI</strong> — and I'm building in public
+      to get there.
+    </p>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <div class="sec-label reveal">// current focus</div>
+    <h2 class="sec-title reveal">Agentic AI, from demo to production.</h2>
+    <p class="lead reveal">
+      The hype is everywhere; the hard part isn't. Most agent demos die before they reach real users.
+      I'm focused on the gap that actually matters to teams: <strong>making agents reliable, observable,
+      and useful in production.</strong>
+    </p>
+    <div class="pills reveal">
+      <div class="pill"><b>›</b> Multi-agent orchestration</div>
+      <div class="pill"><b>›</b> MCP &amp; tool integration</div>
+      <div class="pill"><b>›</b> LLM app architecture</div>
+      <div class="pill"><b>›</b> Evals &amp; reliability</div>
+      <div class="pill"><b>›</b> Pilot → production</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-label reveal">// projects</div>
+    <h2 class="sec-title reveal">Things I'm building.</h2>
+    <div class="grid">
+
+      <div class="card reveal">
+        <div class="tag">Flagship · iOS</div>
+        <h3>Ledger AI</h3>
+        <p>An AI meeting companion for iOS. Record a meeting and get back an accurate transcript, a clean
+        summary, and the action items that matter. Built solo, end-to-end — mobile app, AI backend, and a
+        freemium subscription model — and shipping to the App Store.</p>
+        <div class="stack"><span>React Native (Expo)</span><span>TypeScript</span><span>Firebase</span><span>Vertex AI · Gemini</span><span>RevenueCat</span></div>
+        <div class="status"><span class="d"></span> Launching on the App Store</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Production · Applied AI</div>
+        <h3>AI quote &amp; semantic search engine</h3>
+        <p>The AI layer of a global shipping &amp; logistics platform. Inbound quote-request emails are parsed
+        and structured by an LLM, then enriched against a semantic-search layer — Vertex AI embeddings over a
+        pgvector store of carriers, sailing schedules, ports, and organizations. Turns messy email threads
+        into accurate, automated quotations.</p>
+        <div class="stack"><span>.NET 8</span><span>Semantic Kernel</span><span>Vertex AI</span><span>pgvector / RAG</span><span>Azure microservices</span></div>
+        <div class="status"><span class="d"></span> In production</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Personal · In progress</div>
+        <h3>QFD</h3>
+        <p>A modern installable web app (PWA) built on the latest stack — Next.js 16, React 19, Supabase, and
+        Drizzle ORM, with end-to-end type safety and offline support.</p>
+        <div class="stack"><span>Next.js 16</span><span>React 19</span><span>Supabase</span><span>Drizzle</span><span>TypeScript</span></div>
+        <p class="editnote">↳ Joey: one line on what QFD does for users and I'll finish this card.</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Building in public</div>
+        <h3>Agentic experiments</h3>
+        <p>A running series of small, public agent builds — multi-agent workflows, MCP servers, and
+        production-reliability experiments — each shipped with a write-up on what worked and what broke.
+        New repos landing monthly.</p>
+        <div class="stack"><span>Python</span><span>LangGraph</span><span>MCP</span><span>Evals</span></div>
+        <div class="status"><span class="d"></span> Kicking off this month</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-label reveal">// experience</div>
+    <h2 class="sec-title reveal">15 years of shipping.</h2>
+    <div class="tl">
+      <div class="tl-item now reveal">
+        <div class="tl-date">2018 — Present</div>
+        <h4>Lead Software Developer</h4>
+        <div class="co">VBE Group · (working from Bangkok via Igloo Thailand)</div>
+        <p>Lead engineer on worldwide logistics web apps — bookings, quotes, and sailing schedules — built on an
+        Angular + .NET microservices architecture, secured by a custom OpenID/OAuth identity server. Drive
+        architecture, code reviews, mentoring, and CI/CD on GitHub &amp; Azure DevOps.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2014 — 2018</div>
+        <h4>Full Stack Developer</h4>
+        <div class="co">JDM Software (now Anywhere 365)</div>
+        <p>Built telephony services in C++ handling thousands of calls/day, and led the shift from on-prem desktop
+        apps to web-based clients on Azure Kubernetes (Angular + .NET Core). Part of the architecture team.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2007 — 2014</div>
+        <h4>Full Stack Developer</h4>
+        <div class="co">Connexys (now Bullhorn)</div>
+        <p>Built recruitment platform features, hundreds of career sites, and a Java/Solr resume-indexing engine
+        powering a Salesforce-based product. Play! Framework, Oracle PL/SQL, and front-end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label reveal">// stack</div>
+    <h2 class="sec-title reveal">What I work with.</h2>
+    <div class="skillcols">
+      <div class="reveal">
+        <h4>AI / Agents</h4>
+        <ul><li>LLM apps</li><li>Agentic systems</li><li>Semantic Kernel</li><li>Embeddings</li><li>RAG / pgvector</li><li>MCP</li><li>LangGraph</li><li>Prompt design</li></ul>
+      </div>
+      <div class="reveal">
+        <h4>Backend</h4>
+        <ul><li>C#</li><li>.NET / Core</li><li>Microservices</li><li>Java</li><li>C++</li><li>SQL Server</li><li>Oracle</li><li>REST / SOAP</li></ul>
+      </div>
+      <div class="reveal">
+        <h4>Frontend / Mobile</h4>
+        <ul><li>Angular</li><li>TypeScript</li><li>React Native</li><li>JavaScript</li><li>SCSS</li></ul>
+      </div>
+      <div class="reveal">
+        <h4>Cloud / DevOps</h4>
+        <ul><li>Azure</li><li>Docker</li><li>Kubernetes</li><li>Firebase</li><li>CI/CD</li><li>Git</li><li>Linux</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <h2>Let's build something.</h2>
+      <p>Open to interesting work in agentic AI — roles, consulting, or collaborations.
+      Always happy to talk shop with fellow builders.</p>
+      <div class="cta" style="justify-content:center;">
+        <a class="btn primary" href="mailto:joeystdio@gmail.com">joeystdio@gmail.com</a>
+        <a class="btn" href="https://github.com/joeystdio" target="_blank" rel="noopener">@joeystdio on GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/joeystevense/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>© <span id="yr"></span> Joey Stevense</div>
+    <div class="mono">built with curiosity · <span class="grad-text">@joeystdio</span></div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // typed terminal effect
+  const lines = [
+    'whoami  →  lead engineer, 15+ yrs',
+    'cd ~/agentic-ai && ./build.sh',
+    'deploy --target production --reliable',
+    'echo "building in public. follow along."'
+  ];
+  const el = document.getElementById('typed');
+  let li = 0, ci = 0, deleting = false;
+  function tick() {
+    const line = lines[li];
+    if (!deleting) {
+      el.textContent = line.slice(0, ci++);
+      if (ci > line.length) { deleting = true; setTimeout(tick, 1700); return; }
+    } else {
+      el.textContent = line.slice(0, ci--);
+      if (ci < 0) { deleting = false; li = (li + 1) % lines.length; ci = 0; }
+    }
+    setTimeout(tick, deleting ? 30 : 55);
+  }
+  tick();
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 60); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((n) => io.observe(n));
+</script>
+</body>
+</html>
