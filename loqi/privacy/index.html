@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Loqi</title>
+<meta name="description" content="Privacy policy for Loqi, the recording and AI transcription app for iOS." />
+<meta name="robots" content="index,follow" />
+<style>
+  :root {
+    --bg: #07080d;
+    --surface: #0e1017;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e8e8ee;
+    --muted: #8b8b9a;
+    --accent: #818cf8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+  h1 { font-size: 1.9rem; margin: 0 0 4px; }
+  .meta { color: var(--muted); margin-bottom: 36px; font-size: 0.95rem; }
+  h2 { font-size: 1.25rem; margin: 40px 0 12px; }
+  h3 { font-size: 1.05rem; margin: 28px 0 8px; }
+  p, li { color: var(--text); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0;
+    font-size: 0.92rem; display: block; overflow-x: auto;
+  }
+  th, td { text-align: left; padding: 8px 12px; border: 1px solid var(--border); }
+  th { background: var(--surface); }
+  ul { padding-left: 22px; }
+  strong { color: #fff; }
+  .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="meta"><strong>Loqi</strong> · Last updated: July 14, 2026</p>
+
+  <h2>Overview</h2>
+  <p>Loqi ("we", "our", "the app") is a recording and AI-powered transcription app for iOS. This privacy policy explains what data we collect, how we use it, and your rights regarding that data.</p>
+
+  <h2>Data We Collect</h2>
+
+  <h3>Account Information</h3>
+  <p>When you sign in with Apple or Google, we receive your:</p>
+  <ul>
+    <li>Email address</li>
+    <li>Display name (if provided by your sign-in provider)</li>
+    <li>A unique user identifier</li>
+  </ul>
+  <p>This data is managed by Firebase Authentication (Google) and stored on Google's servers. We do not store your sign-in credentials.</p>
+
+  <h3>Audio Recordings</h3>
+  <p>When you record a meeting, the audio is:</p>
+  <ul>
+    <li>Stored locally on your device</li>
+    <li>Uploaded to a private cloud storage bucket <strong>only</strong> when a meeting is processed, as a temporary transit buffer for AI processing</li>
+    <li><strong>Deleted from our servers immediately after processing completes</strong> — whether processing succeeds or fails. We do not retain audio server-side.</li>
+  </ul>
+
+  <h3>AI-Processed Content</h3>
+  <p>When you process a recording, the audio is sent to Google's Vertex AI (Gemini) service, which returns:</p>
+  <ul>
+    <li>A text transcript with speaker identification</li>
+    <li>A summary of key points</li>
+    <li>Extracted action items</li>
+  </ul>
+  <p>This processed content is returned to your device and stored <strong>locally on your device only</strong> in an on-device database. We do not retain transcripts, summaries, or tasks on our servers.</p>
+
+  <h3>Subscription &amp; Usage Data</h3>
+  <p>We collect:</p>
+  <ul>
+    <li>Your subscription plan (Free, Starter, Pro, or Max)</li>
+    <li>Number of meetings processed and AI minutes used per billing period</li>
+    <li>Purchased minute-pack balance</li>
+  </ul>
+  <p>This usage data is stored in Google Firestore and linked to your user ID. It is used solely for enforcing plan limits.</p>
+  <p>Purchases are processed by <strong>Apple</strong> through the App Store (StoreKit). We do not receive or store your payment details. Apple notifies our server of subscription and purchase events (App Store Server Notifications) so we can activate your plan and credit minute packs; these notifications are linked to your account via an anonymous token. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+
+  <h3>Abuse Prevention</h3>
+  <p>The app uses Apple's App Attest / Firebase App Check to verify that requests to our servers come from a genuine copy of the app. This involves Apple issuing a device attestation; no additional personal data is collected by us for this purpose.</p>
+
+  <h3>What We Do NOT Collect</h3>
+  <ul>
+    <li>We do not collect location data</li>
+    <li>We do not collect contacts or address book data</li>
+    <li>We do not use analytics or advertising SDKs</li>
+    <li>We do not track you across other apps or websites</li>
+    <li>We do not sell your data to third parties</li>
+  </ul>
+
+  <h2>How We Use Your Data</h2>
+  <table>
+    <tr><th>Data</th><th>Purpose</th></tr>
+    <tr><td>Account info</td><td>Authenticate you and link your subscription</td></tr>
+    <tr><td>Audio recordings</td><td>Process with AI to generate transcripts and summaries</td></tr>
+    <tr><td>Transcripts &amp; summaries</td><td>Display to you locally; share/export only when you choose</td></tr>
+    <tr><td>Usage data</td><td>Enforce plan limits (meetings processed, minutes used)</td></tr>
+    <tr><td>Subscription status</td><td>Determine which features you can access</td></tr>
+  </table>
+
+  <h2>Third-Party Services</h2>
+  <p>We use the following third-party services that may process your data:</p>
+  <table>
+    <tr><th>Service</th><th>Provider</th><th>Data Shared</th><th>Purpose</th></tr>
+    <tr><td>Firebase Authentication</td><td>Google</td><td>Email, user ID</td><td>Sign-in and identity</td></tr>
+    <tr><td>Cloud Functions &amp; Cloud Storage</td><td>Google</td><td>Audio (temporarily), user ID</td><td>Server-side AI processing</td></tr>
+    <tr><td>Vertex AI (Gemini)</td><td>Google</td><td>Audio (temporarily)</td><td>Transcription, summarization, task extraction</td></tr>
+    <tr><td>Firestore</td><td>Google</td><td>User ID, plan, usage stats</td><td>Usage tracking and plan management</td></tr>
+    <tr><td>Apple App Store</td><td>Apple</td><td>Purchase events, anonymous account token</td><td>Payment processing and subscription lifecycle</td></tr>
+  </table>
+  <p>Audio sent to Google Vertex AI is processed according to <a href="https://cloud.google.com/terms/data-processing-terms">Google's Cloud Data Processing Terms</a>. Google does not use your data to train AI models.</p>
+
+  <h2>Data Sharing</h2>
+  <p>We do not sell, rent, or share your personal data with third parties for marketing or advertising purposes.</p>
+  <p>Your meeting content (transcripts, summaries, tasks, recordings) is shared only when you explicitly use the app's sharing or export features (email, the iOS share sheet, or PDF export). In that case, the content goes to the recipients and apps you choose.</p>
+
+  <h2>Data Storage &amp; Security</h2>
+  <ul>
+    <li><strong>On-device data</strong> (recordings, transcripts, summaries, tasks): Stored in a local database and the device file system. Protected by your device's security (passcode, biometrics).</li>
+    <li><strong>Server-side data</strong> (user ID, plan, usage stats): Stored in Google Firestore with access restricted to your own authenticated account.</li>
+    <li><strong>Audio in transit</strong>: Uploaded over HTTPS (TLS) to a private storage bucket, used only as a transit buffer for processing, and deleted immediately afterwards.</li>
+  </ul>
+
+  <h2>Data Retention</h2>
+  <table>
+    <tr><th>Data</th><th>Retention</th></tr>
+    <tr><td>Audio recordings (device)</td><td>Until you delete the meeting from the app</td></tr>
+    <tr><td>Audio recordings (server)</td><td>Deleted immediately after processing</td></tr>
+    <tr><td>Transcripts, summaries, tasks</td><td>Until you delete the meeting from the app</td></tr>
+    <tr><td>Account information</td><td>Until you delete your account</td></tr>
+    <tr><td>Usage statistics</td><td>Until you delete your account</td></tr>
+  </table>
+
+  <h2>Your Rights</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li><strong>Access</strong> your data: All meeting data is visible in the app. Usage data is shown on the Settings screen.</li>
+    <li><strong>Delete</strong> your data: Delete individual meetings from the app. Delete your account (Settings → Delete Account) to remove all server-side data.</li>
+    <li><strong>Export</strong> your data: Use the sharing/export features to export meeting content.</li>
+    <li><strong>Withdraw consent</strong>: Stop using the app and delete your account at any time.</li>
+  </ul>
+
+  <h2>Children's Privacy</h2>
+  <p>Loqi is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this privacy policy from time to time. We will notify you of significant changes through the app or via email. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+  <h2>Contact</h2>
+  <p>If you have questions about this privacy policy or your data, contact us at:</p>
+  <p>Email: <a href="mailto:privacy@jdms.nl">privacy@jdms.nl</a></p>
+
+  <p class="footer">Loqi · <a href="https://joeystdio.github.io/">joeystdio.github.io</a></p>
+</main>
+</body>
+</html>
