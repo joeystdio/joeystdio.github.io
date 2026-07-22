@@ -82,11 +82,11 @@
   <p>We collect:</p>
   <ul>
     <li>Your subscription plan (Free, Starter, Pro, or Max)</li>
-    <li>Number of meetings processed and AI minutes used per billing period</li>
-    <li>Purchased minute-pack balance</li>
+    <li>Number of recordings processed and credits used per billing period (1 credit covers up to 1 minute of audio)</li>
+    <li>Purchased credit-pack balance</li>
   </ul>
   <p>This usage data is stored in Google Firestore and linked to your user ID. It is used solely for enforcing plan limits.</p>
-  <p>Purchases are processed by <strong>Apple</strong> through the App Store (StoreKit). We do not receive or store your payment details. Apple notifies our server of subscription and purchase events (App Store Server Notifications) so we can activate your plan and credit minute packs; these notifications are linked to your account via an anonymous token. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+  <p>Purchases are processed by <strong>Apple</strong> through the App Store (StoreKit). We do not receive or store your payment details. Apple notifies our server of subscription and purchase events (App Store Server Notifications) so we can activate your plan and add purchased credit packs; these notifications are linked to your account via an anonymous token. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
 
   <h3>Abuse Prevention</h3>
   <p>The app uses Apple's App Attest / Firebase App Check to verify that requests to our servers come from a genuine copy of the app. This involves Apple issuing a device attestation; no additional personal data is collected by us for this purpose.</p>
@@ -106,7 +106,7 @@
     <tr><td>Account info</td><td>Authenticate you and link your subscription</td></tr>
     <tr><td>Audio recordings</td><td>Process with AI to generate transcripts and summaries</td></tr>
     <tr><td>Transcripts &amp; summaries</td><td>Display to you locally; share/export only when you choose</td></tr>
-    <tr><td>Usage data</td><td>Enforce plan limits (meetings processed, minutes used)</td></tr>
+    <tr><td>Usage data</td><td>Enforce plan limits (recordings processed, credits used)</td></tr>
     <tr><td>Subscription status</td><td>Determine which features you can access</td></tr>
   </table>
 
