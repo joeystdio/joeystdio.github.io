@@ -45,7 +45,7 @@
 <body>
 <main>
   <h1>Privacy Policy</h1>
-  <p class="meta"><strong>Loqi</strong> · Last updated: July 14, 2026</p>
+  <p class="meta"><strong>Loqi</strong> · Last updated: August 24, 2026</p>
 
   <h2>Overview</h2>
   <p>Loqi ("we", "our", "the app") is a recording and AI-powered transcription app for iOS. This privacy policy explains what data we collect, how we use it, and your rights regarding that data.</p>
@@ -53,7 +53,8 @@
   <h2>Data We Collect</h2>
 
   <h3>Account Information</h3>
-  <p>When you sign in with Apple or Google, we receive your:</p>
+  <p><strong>You can use Loqi without creating an account.</strong> On first launch the app creates an anonymous account — a random identifier with no name, email, or other personal information attached. Your credits, plan, and purchases are linked to that identifier.</p>
+  <p>Saving an account (signing in with Apple, Google, or email) is <strong>optional</strong> — it exists so your credits and purchases follow you to other devices or a new phone. If you sign in, we receive:</p>
   <ul>
     <li>Email address</li>
     <li>Display name (if provided by your sign-in provider)</li>
@@ -65,19 +66,22 @@
   <p>When you record a meeting, the audio is:</p>
   <ul>
     <li>Stored locally on your device</li>
-    <li>Uploaded to a private cloud storage bucket <strong>only</strong> when a meeting is processed, as a temporary transit buffer for AI processing</li>
-    <li><strong>Deleted from our servers immediately after processing completes</strong> — whether processing succeeds or fails. We do not retain audio server-side.</li>
+    <li>Uploaded to a private cloud storage bucket <strong>only</strong> when a meeting is processed — and only after you have allowed AI processing (see <em>Your Consent to AI Processing</em> below) — as a temporary transit buffer</li>
+    <li><strong>Deleted from our servers after processing completes.</strong> If processing needs to be retried (for example during an AI service outage), the audio is kept only while those retries are pending, and a storage lifecycle rule deletes it in any case within about a day of upload (at most two). We do not retain audio server-side beyond that.</li>
   </ul>
 
   <h3>AI-Processed Content</h3>
-  <p>When you process a recording, the audio is sent to Google's Vertex AI (Gemini) service, which returns:</p>
+  <p>When a recording is processed, the audio is sent to Google's Vertex AI (Gemini) service, which returns:</p>
   <ul>
     <li>A text transcript with speaker identification</li>
-    <li>A summary of key points</li>
+    <li>A summary of key points, a title, and a timestamped outline</li>
     <li>Extracted action items</li>
   </ul>
-  <p>This processed content is returned to your device and stored <strong>locally on your device only</strong> in an on-device database. We do not retain transcripts, summaries, or tasks on our servers.</p>
+  <p>This processed content is delivered to your device and stored in an on-device database. To make sure a finished transcript still reaches you when the app was closed during processing, the result is held in a server-side delivery inbox <strong>until your device retrieves it, for at most 7 days</strong>, and is deleted from our servers as soon as it is delivered (or when the 7 days expire). After delivery, transcripts, summaries, and tasks exist only on your device.</p>
   <p>Audio sent for processing is handled by Google Cloud&rsquo;s Vertex AI under Google&rsquo;s data-processing terms. <strong>Google does not use your audio or the generated text to train its models.</strong> We have disabled Google&rsquo;s data caching for our project (zero data retention), so Vertex AI does not keep your audio or results after the request completes. Google may temporarily log prompts flagged by its automated abuse-detection systems, as described in <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance">Google&rsquo;s Generative AI data governance documentation</a>.</p>
+
+  <h3>Your Consent to AI Processing</h3>
+  <p>The app asks for your explicit permission <strong>before the first recording is sent</strong> to Google's AI service, and explains there what is sent and to whom. Until you allow it, nothing leaves your device — recording, playback, and sharing work regardless. You can withdraw this permission at any time in <strong>Settings → AI Processing</strong>; from that moment no further audio is transmitted.</p>
 
   <h3>Subscription &amp; Usage Data</h3>
   <p>We collect:</p>
@@ -87,7 +91,7 @@
     <li>Purchased credit-pack balance</li>
   </ul>
   <p>This usage data is stored in Google Firestore and linked to your user ID. It is used solely for enforcing plan limits.</p>
-  <p>Purchases are processed by <strong>Apple</strong> through the App Store (StoreKit). We do not receive or store your payment details. Apple notifies our server of subscription and purchase events (App Store Server Notifications) so we can activate your plan and add purchased credit packs; these notifications are linked to your account via an anonymous token. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+  <p>Purchases are processed by <strong>Apple</strong> through the App Store (StoreKit) and work without a saved account. We do not receive or store your payment details. Apple notifies our server of subscription and purchase events (App Store Server Notifications) so we can activate your plan and add purchased credit packs; these notifications are linked to your account via an anonymous token. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
 
   <h3>Abuse Prevention</h3>
   <p>The app uses Apple's App Attest / Firebase App Check to verify that requests to our servers come from a genuine copy of the app. This involves Apple issuing a device attestation; no additional personal data is collected by us for this purpose.</p>
@@ -104,9 +108,9 @@
   <h2>How We Use Your Data</h2>
   <table>
     <tr><th>Data</th><th>Purpose</th></tr>
-    <tr><td>Account info</td><td>Authenticate you and link your subscription</td></tr>
-    <tr><td>Audio recordings</td><td>Process with AI to generate transcripts and summaries</td></tr>
-    <tr><td>Transcripts &amp; summaries</td><td>Display to you locally; share/export only when you choose</td></tr>
+    <tr><td>Account info (anonymous identifier, or sign-in details if you save an account)</td><td>Authenticate you and link your credits and subscription</td></tr>
+    <tr><td>Audio recordings</td><td>Process with AI — with your permission — to generate transcripts and summaries</td></tr>
+    <tr><td>Transcripts &amp; summaries</td><td>Display to you locally; held server-side only until delivered to your device (max 7 days); share/export only when you choose</td></tr>
     <tr><td>Usage data</td><td>Enforce plan limits (recordings processed, credits used)</td></tr>
     <tr><td>Subscription status</td><td>Determine which features you can access</td></tr>
   </table>
@@ -130,16 +134,17 @@
   <h2>Data Storage &amp; Security</h2>
   <ul>
     <li><strong>On-device data</strong> (recordings, transcripts, summaries, tasks): Stored in a local database and the device file system. Protected by your device's security (passcode, biometrics).</li>
-    <li><strong>Server-side data</strong> (user ID, plan, usage stats): Stored in Google Firestore with access restricted to your own authenticated account.</li>
-    <li><strong>Audio in transit</strong>: Uploaded over HTTPS (TLS) to a private storage bucket, used only as a transit buffer for processing, and deleted immediately afterwards.</li>
+    <li><strong>Server-side data</strong> (user ID, plan, usage stats, undelivered results): Stored in Google Firestore with access restricted to your own authenticated account.</li>
+    <li><strong>Audio in transit</strong>: Uploaded over HTTPS (TLS) to a private storage bucket, used only as a transit buffer for processing, and deleted afterwards (see Data Retention).</li>
   </ul>
 
   <h2>Data Retention</h2>
   <table>
     <tr><th>Data</th><th>Retention</th></tr>
     <tr><td>Audio recordings (device)</td><td>Until you delete the meeting from the app</td></tr>
-    <tr><td>Audio recordings (server)</td><td>Deleted immediately after processing</td></tr>
-    <tr><td>Transcripts, summaries, tasks</td><td>Until you delete the meeting from the app</td></tr>
+    <tr><td>Audio recordings (server)</td><td>Deleted after processing; kept only while retries are pending, and removed by a lifecycle rule within about a day of upload (at most two) in every case</td></tr>
+    <tr><td>Transcripts, summaries, tasks (server)</td><td>Until delivered to your device, at most 7 days</td></tr>
+    <tr><td>Transcripts, summaries, tasks (device)</td><td>Until you delete the meeting from the app</td></tr>
     <tr><td>Account information</td><td>Until you delete your account</td></tr>
     <tr><td>Usage statistics</td><td>Until you delete your account</td></tr>
   </table>
@@ -148,9 +153,9 @@
   <p>You have the right to:</p>
   <ul>
     <li><strong>Access</strong> your data: All meeting data is visible in the app. Usage data is shown on the Settings screen.</li>
-    <li><strong>Delete</strong> your data: Delete individual meetings from the app. Delete your account (Settings → Delete Account) to remove all server-side data.</li>
+    <li><strong>Delete</strong> your data: Delete individual meetings from the app. Delete your account and all server-side data at any time (Settings → Delete Account, or Delete All Data for an anonymous account).</li>
     <li><strong>Export</strong> your data: Use the sharing/export features to export meeting content.</li>
-    <li><strong>Withdraw consent</strong>: Stop using the app and delete your account at any time.</li>
+    <li><strong>Withdraw consent</strong>: Turn off AI processing at any time in Settings → AI Processing — no further audio is transmitted. You can also delete your account at any time.</li>
   </ul>
 
   <h2>Children's Privacy</h2>
