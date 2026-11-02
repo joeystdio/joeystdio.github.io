@@ -3,19 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Joey Stevense — Software Engineer</title>
-<meta name="description" content="Joey Stevense is a Dutch software engineer in Bangkok, shipping software since 2007: iOS and macOS apps, developer tools and logistics apps.">
+<title>Joey Stevense — .NET &amp; AI Software Engineer in Bangkok</title>
+<meta name="description" content="Dutch software engineer in Bangkok, shipping since 2007. Lead developer on .NET and AI logistics platforms; built Loqi, Envy, PortRadar and GhostMouse.">
 <link rel="canonical" href="https://joeystdio.github.io/">
 <meta name="theme-color" content="#111214">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://joeystdio.github.io/">
-<meta property="og:title" content="Joey Stevense — Software Engineer">
-<meta property="og:description" content="Curious about everything. Dutch software engineer in Bangkok, shipping software since 2007.">
+<meta property="og:site_name" content="Joey Stevense">
+<meta property="og:title" content="Joey Stevense — .NET &amp; AI Software Engineer in Bangkok">
+<meta property="og:description" content="Curious about everything. Dutch software engineer in Bangkok, shipping since 2007.">
 <meta property="og:image" content="https://joeystdio.github.io/assets/og.png">
-<meta property="og:image:alt" content="A split-flap departures board: Loqi, QFD and Envy departed; the next departure is question marks.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Joey Stevense, Dutch software engineer in Bangkok, above a split-flap departures board: Loqi, QFD and Envy departed; the next departure is question marks.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Crect x='5' y='3' width='22' height='26' fill='%231C1D20'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Menlo,Consolas,monospace' font-weight='700' font-size='22' fill='%23FFC917'%3EJ%3C/text%3E%3Crect x='5' y='15' width='22' height='2' fill='%23000'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;600&display=swap">
@@ -23,12 +28,103 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Joey Stevense",
-  "url": "https://joeystdio.github.io/",
-  "jobTitle": "Software Engineer",
-  "address": { "@type": "PostalAddress", "addressLocality": "Bangkok", "addressCountry": "TH" },
-  "sameAs": ["https://github.com/joeystdio", "https://www.linkedin.com/in/joeystevense/"]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://joeystdio.github.io/#site",
+      "url": "https://joeystdio.github.io/",
+      "name": "Joey Stevense",
+      "alternateName": "joeystdio",
+      "publisher": {
+        "@id": "https://joeystdio.github.io/#joey"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://joeystdio.github.io/#joey",
+      "name": "Joey Stevense",
+      "alternateName": "joeystdio",
+      "url": "https://joeystdio.github.io/",
+      "image": "https://joeystdio.github.io/assets/og.png",
+      "jobTitle": "Lead Software Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "VBE Group"
+      },
+      "nationality": {
+        "@type": "Country",
+        "name": "Netherlands"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Rotterdam University of Applied Sciences"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangkok",
+        "addressCountry": "TH"
+      },
+      "knowsAbout": [
+        ".NET",
+        "C#",
+        "Angular",
+        "TypeScript",
+        "Python",
+        "Swift",
+        "React Native",
+        "Google Cloud",
+        "LLMs"
+      ],
+      "sameAs": [
+        "https://github.com/joeystdio",
+        "https://www.linkedin.com/in/joeystevense/",
+        "https://buymeacoffee.com/joeystdio"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Loqi",
+      "operatingSystem": "iOS",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://apps.apple.com/app/id6791486199",
+      "author": {
+        "@id": "https://joeystdio.github.io/#joey"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Envy",
+      "operatingSystem": "macOS",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://github.com/joeystdio/envy",
+      "author": {
+        "@id": "https://joeystdio.github.io/#joey"
+      },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "PortRadar",
+      "operatingSystem": "macOS",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://github.com/joeystdio/PortRadar",
+      "author": {
+        "@id": "https://joeystdio.github.io/#joey"
+      },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "GhostMouse",
+      "operatingSystem": "macOS",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://github.com/joeystdio/GhostMouse",
+      "author": {
+        "@id": "https://joeystdio.github.io/#joey"
+      },
+      "isAccessibleForFree": true
+    }
+  ]
 }
 </script>
 <style>
@@ -93,11 +189,10 @@ a:hover{color:var(--signal)}
 .site-head nav a:hover{text-decoration:underline;text-decoration-color:var(--signal)}
 
 /* ---------- Hero ---------- */
-.hero{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"ident" "head" "intro" "board" "links";padding-top:clamp(28px, 4.5vw, 52px);padding-bottom:clamp(72px, 10vw, 136px)}
-.ident{grid-area:ident;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px}
-.ident h1{font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:1.75rem;line-height:1.1;letter-spacing:.005em}
-.tagline{color:var(--muted);font-size:1rem}
-.headline{grid-area:head;font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:clamp(3.4rem, 13.6vw, 8.75rem);line-height:.86;letter-spacing:-.008em;margin:.16em 0 .3em;text-wrap:balance}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "tag" "intro" "board" "links";padding-top:clamp(28px, 4.5vw, 52px);padding-bottom:clamp(72px, 10vw, 136px)}
+.headline{grid-area:head;font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:clamp(3.25rem, 11vw, 7rem);line-height:.9;letter-spacing:-.006em;margin:0;text-wrap:balance}
+.tagline{grid-area:tag;color:var(--muted);font-size:clamp(1.0625rem, 1.5vw, 1.25rem);line-height:1.4;margin:.75em 0 clamp(24px, 3vw, 36px)}
+.lead{font-weight:700}
 .intro{grid-area:intro;max-width:60ch;font-size:clamp(1.125rem, 1.4vw, 1.25rem);line-height:1.55}
 .hero-links{grid-area:links;display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;font-weight:500}
 .hero-links a{display:inline-block;padding-block:4px}
@@ -224,7 +319,7 @@ details[open] .tog::before{content:"\2212"}
 
 /* ---------- Wider screens ---------- */
 @media (min-width:900px){
-  .hero{grid-template-columns:minmax(0,7fr) minmax(0,4fr);column-gap:clamp(32px, 5vw, 80px);grid-template-areas:"ident ident" "head head" "intro links" "board board"}
+  .hero{grid-template-columns:minmax(0,7fr) minmax(0,4fr);column-gap:clamp(32px, 5vw, 80px);grid-template-areas:"head head" "tag tag" "intro links" "board board"}
   .hero-links{flex-direction:column;align-items:flex-start;align-self:end;justify-self:end;gap:6px;margin-top:0}
   .about{grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(32px, 5vw, 80px)}
 }
@@ -322,12 +417,9 @@ details[open] .tog::before{content:"\2212"}
 
 <main id="main">
   <section class="hero wrap" id="top" aria-labelledby="name">
-    <div class="ident">
-      <h1 id="name">Joey Stevense</h1>
-      <p class="tagline">Dutch software engineer in Bangkok. Shipping software since 2007.</p>
-    </div>
-    <p class="headline">Curious about everything.</p>
-    <p class="intro">15+ years of shipping production software, and the curiosity never wore off. New languages, new stacks, new tools: I want to try all of it. With AI in the toolbox, an idea on Friday can be a full SaaS app by Monday. Think of it as a box of chocolates: you never know what I’ll build next.</p>
+    <h1 class="headline" id="name">Joey Stevense</h1>
+    <p class="tagline">Dutch software engineer in Bangkok, shipping since 2007.</p>
+    <p class="intro"><span class="lead">Curious about everything.</span> Years of production code haven’t cured it. New languages, new stacks, new tools: I want to try all of it. With AI in the toolbox, an idea on Friday can be a full SaaS app by Monday. Think of it as a box of chocolates: you never know what I’ll build next.</p>
 
     <div class="board" id="board">
       <p class="vh">Departures board. Loqi to the App Store: departed. QFD to a friend’s bar: departed. Envy to Homebrew: departed. Next: destination unknown, boarding.</p>
@@ -456,7 +548,7 @@ details[open] .tog::before{content:"\2212"}
       <div class="tt-head" aria-hidden="true"><span>Project</span><span>Cargo</span><span>Destination</span><span>Manifest</span></div>
       <ul class="tt-rows">
 
-        <li class="express">
+        <li class="express" id="loqi">
           <details open>
             <summary><span class="r">
               <span class="ic"><img src="assets/loqi.png" alt="" width="56" height="56" decoding="async"></span>
@@ -468,7 +560,7 @@ details[open] .tog::before{content:"\2212"}
             <div class="mf">
               <div class="mf-main">
                 <p class="mf-desc">Record a meeting; get the transcript, summary and action items. Built solo: app, AI backend, subscriptions.</p>
-                <a class="act" href="https://apps.apple.com/us/app/loqi-record-transcribe/id6791486199" rel="noopener">Get it on the App Store</a>
+                <a class="act" href="https://apps.apple.com/app/id6791486199" rel="noopener">Get it on the App Store</a>
               </div>
               <dl class="mf-facts">
                 <div><dt>Stack</dt><dd>React Native, Firebase, Gemini</dd></div>
@@ -477,7 +569,7 @@ details[open] .tog::before{content:"\2212"}
           </details>
         </li>
 
-        <li class="express">
+        <li class="express" id="qfd">
           <details>
             <summary><span class="r">
               <span class="ic" aria-hidden="true"><span class="mk-qfd"><span>QFD</span></span></span>
@@ -488,7 +580,7 @@ details[open] .tog::before{content:"\2212"}
             </span></summary>
             <div class="mf">
               <div class="mf-main">
-                <p class="mf-desc">A jukebox where nobody can skip your song. Guests queue from their own phone via QR code, no app or account. Born at a friend’s bar, where one mistap on the Spotify tablet killed the vibe.</p>
+                <p class="mf-desc">A fair jukebox for bars and parties: nobody can skip your song. Guests scan a QR code and queue from their phone. No app, no account. Born at a friend’s bar, where one mistap on the Spotify tablet killed the vibe.</p>
                 <p class="act-none">Walk-in only. No public link.</p>
               </div>
               <dl class="mf-facts">
@@ -500,9 +592,9 @@ details[open] .tog::before{content:"\2212"}
         </li>
 
         <li class="grp">
-          <p class="grp-h">Free and open source, on Homebrew</p>
+          <h3 class="grp-h">Free and open source, on Homebrew</h3>
           <ul class="grp-rows">
-            <li>
+            <li id="envy">
               <details>
                 <summary><span class="r">
                   <span class="ic"><img src="assets/envy.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>
@@ -513,7 +605,7 @@ details[open] .tog::before{content:"\2212"}
                 </span></summary>
                 <div class="mf">
                   <div class="mf-main">
-                    <p class="mf-desc">Env vars and secrets for your terminal and AI agents, per project, in the Keychain instead of dotfiles.</p>
+                    <p class="mf-desc">Env vars and secrets for your terminal and AI agents, per project, in the macOS Keychain instead of plain-text dotfiles.</p>
                     <div class="cmd" data-app="Envy"><code>brew install --cask joeystdio/<wbr>tap/<wbr>envy</code></div>
                     <a class="act" href="https://github.com/joeystdio/envy" rel="noopener">Envy on GitHub</a>
                   </div>
@@ -524,7 +616,7 @@ details[open] .tog::before{content:"\2212"}
                 </div>
               </details>
             </li>
-            <li>
+            <li id="portradar">
               <details>
                 <summary><span class="r">
                   <span class="ic"><img src="assets/portradar.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>
@@ -546,7 +638,7 @@ details[open] .tog::before{content:"\2212"}
                 </div>
               </details>
             </li>
-            <li>
+            <li id="ghostmouse">
               <details>
                 <summary><span class="r">
                   <span class="ic"><img src="assets/ghostmouse.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>
@@ -575,6 +667,50 @@ details[open] .tog::before{content:"\2212"}
           <details>
             <summary><span class="r">
               <span class="ic" aria-hidden="true"><svg viewBox="0 0 36 36" width="36" height="36" focusable="false"><rect x="1" y="8" width="34" height="20" fill="#E8532F"/><g fill="#9E3216"><rect x="5" y="11" width="2" height="14"/><rect x="10" y="11" width="2" height="14"/><rect x="15" y="11" width="2" height="14"/><rect x="20" y="11" width="2" height="14"/><rect x="25" y="11" width="2" height="14"/><rect x="30" y="11" width="2" height="14"/></g></svg></span>
+              <span class="r-name"><span class="nm">AI document reader <span class="tag">Work</span></span></span>
+              <span class="r-cargo"><span class="vh">Cargo: </span>Customs paperwork</span>
+              <span class="r-dest"><span class="vh">Destination: </span>Production</span>
+              <span class="tog cell" aria-hidden="true"></span>
+            </span></summary>
+            <div class="mf">
+              <div class="mf-main">
+                <p class="mf-desc">Reads freight and customs documents with LLMs and fills in the forms. One shared core, three logistics apps.</p>
+                <p class="act-none">Crew only. No public link.</p>
+              </div>
+              <dl class="mf-facts">
+                <div><dt>Type</dt><dd>Logistics platform</dd></div>
+                <div><dt>Stack</dt><dd>TypeScript, Python, Google Cloud</dd></div>
+              </dl>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary><span class="r">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 36 36" width="36" height="36" focusable="false"><rect x="1" y="8" width="34" height="20" fill="#E8532F"/><g fill="#9E3216"><rect x="5" y="11" width="2" height="14"/><rect x="10" y="11" width="2" height="14"/><rect x="15" y="11" width="2" height="14"/><rect x="20" y="11" width="2" height="14"/><rect x="25" y="11" width="2" height="14"/><rect x="30" y="11" width="2" height="14"/></g></svg></span>
+              <span class="r-name"><span class="nm">AI feedback portal <span class="tag">Work</span></span></span>
+              <span class="r-cargo"><span class="vh">Cargo: </span>Feature requests</span>
+              <span class="r-dest"><span class="vh">Destination: </span>Production</span>
+              <span class="tog cell" aria-hidden="true"></span>
+            </span></summary>
+            <div class="mf">
+              <div class="mf-main">
+                <p class="mf-desc">Users describe a problem or a wish in a chat; an AI assistant reads the code, asks focused questions and drafts a brief the team triages.</p>
+                <p class="act-none">Crew only. No public link.</p>
+              </div>
+              <dl class="mf-facts">
+                <div><dt>Type</dt><dd>Logistics platform</dd></div>
+                <div><dt>Stack</dt><dd>TypeScript, Postgres, Gemini</dd></div>
+              </dl>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary><span class="r">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 36 36" width="36" height="36" focusable="false"><rect x="1" y="8" width="34" height="20" fill="#E8532F"/><g fill="#9E3216"><rect x="5" y="11" width="2" height="14"/><rect x="10" y="11" width="2" height="14"/><rect x="15" y="11" width="2" height="14"/><rect x="20" y="11" width="2" height="14"/><rect x="25" y="11" width="2" height="14"/><rect x="30" y="11" width="2" height="14"/></g></svg></span>
               <span class="r-name"><span class="nm">AI quote engine <span class="tag">Work</span></span></span>
               <span class="r-cargo"><span class="vh">Cargo: </span>Messy quote emails</span>
               <span class="r-dest"><span class="vh">Destination: </span>Production</span>
@@ -583,10 +719,10 @@ details[open] .tog::before{content:"\2212"}
             <div class="mf">
               <div class="mf-main">
                 <p class="mf-desc">Turns messy quote-request emails into ready quotations, using an LLM plus semantic search over carriers, ports and schedules.</p>
-                <p class="act-none">Crew only. Built at work, no public link.</p>
+                <p class="act-none">Crew only. No public link.</p>
               </div>
               <dl class="mf-facts">
-                <div><dt>Type</dt><dd>Logistics, at work</dd></div>
+                <div><dt>Type</dt><dd>Logistics platform</dd></div>
                 <div><dt>Stack</dt><dd>.NET, Semantic Kernel, pgvector</dd></div>
               </dl>
             </div>
@@ -600,8 +736,8 @@ details[open] .tog::before{content:"\2212"}
   <section class="sec wrap about" id="about" aria-labelledby="about-h">
     <h2 id="about-h">About</h2>
     <div class="about-body">
-      <p>I’m a Dutch software engineer based in Bangkok, where I’ve lived and worked since late 2023. I started as a full stack developer on recruitment platforms, then built telephony systems handling thousands of calls a day, where I joined the architecture team that moved desktop software to the cloud. Since 2018 I’ve been the lead developer on worldwide logistics apps, these days from Bangkok through Iglu Thailand. Mostly .NET, Angular, and microservices on Google Cloud, with a long tail of C++, Java, and everything in between.</p>
-      <p>What’s consistent across all of it: I like hard problems, I can’t leave a good idea alone, and I ship. These days that means a meeting companion on the App Store, a jukebox that keeps the peace at my friend’s bar, and the developer tools I always wished I had. You’ll find some of it above.</p>
+      <p>I’m a Dutch software engineer living in Bangkok since late 2023. I’ve shipped recruitment platforms, telephony systems handling thousands of calls a day, and, since 2018 as lead developer at VBE Group (via Iglu Thailand), worldwide logistics platforms. Mostly .NET and Angular microservices on Google Cloud, TypeScript and Python for the AI work, and a long tail of C++, Java, and everything in between.</p>
+      <p>The common thread: I like hard problems, I can’t leave a good idea alone, and I ship. Outside work that means an AI note-taker on the App Store, a jukebox that keeps the peace at my friend’s bar, and the developer tools I always wished I had.</p>
     </div>
   </section>
 
@@ -623,7 +759,7 @@ details[open] .tog::before{content:"\2212"}
         <span class="p-stop" aria-hidden="true"></span>
         <div class="p-head">
           <h3 class="p-name">Telephony</h3>
-          <p class="p-role">Full Stack Developer, JDM Software (now Anywhere 365)</p>
+          <p class="p-role">Full Stack Developer, JDM Software (now Anywhere365)</p>
           <p class="p-dates">2014 – 2018</p>
         </div>
         <p class="p-text">Built telephony services in C++ handling thousands of calls a day, and a web-based replacement for the C++ attendant console (Angular + .NET Core on Azure Kubernetes). As part of the architecture team, helped steer the move from on-prem desktop apps to the cloud.</p>
@@ -636,24 +772,24 @@ details[open] .tog::before{content:"\2212"}
           <p class="p-role">Lead Software Developer, VBE Group</p>
           <p class="p-dates">2018 – present</p>
         </div>
-        <p class="p-text">Lead engineer on worldwide logistics web apps (bookings, quotes, and sailing schedules) built on an Angular + .NET microservices architecture, secured by a custom OpenID/OAuth identity server. Introduced Scrum; drive architecture, code reviews, mentoring, and CI/CD on GitHub &amp; Azure DevOps; and build its AI layer: LLM extraction, embeddings, and semantic search.</p>
+        <p class="p-text">Lead developer on worldwide logistics platforms: bookings, quotes, sailing schedules and shipments, built as .NET microservices with Angular front ends and a custom OpenID/OAuth identity server. Moved everything from Azure to Google Cloud to cut costs. On the AI side: a platform that reads freight and customs documents with LLMs, an engine that turns quote-request emails into quotations, and a feedback portal where an AI assistant reads the code and turns user requests into briefs for the team. Plus a data warehouse, shared CI with coverage gates, Claude Code tooling for the team, Scrum, code reviews and mentoring.</p>
       </li>
       <li class="port">
         <span class="p-year">Late 2023</span>
         <span class="p-stop here" aria-hidden="true"></span>
         <div class="p-head">
           <h3 class="p-name">Bangkok</h3>
-          <p class="p-role">VBE Group, via Iglu Thailand</p>
-          <p class="p-dates">Since late 2023</p>
+          <p class="p-role">Same ship, different port: VBE Group, via Iglu Thailand</p>
+          <p class="p-dates">2023 – present</p>
         </div>
       </li>
     </ol>
-    <p class="edu"><strong>Education:</strong> B. ICT Computer Science, Rotterdam University of Applied Sciences.</p>
+    <p class="edu"><strong>Education:</strong> Bachelor of ICT (Computer Science), Rotterdam University of Applied Sciences.</p>
   </section>
 
   <section class="sec wrap contact" id="contact" aria-labelledby="contact-h">
     <h2 id="contact-h">Contact</h2>
-    <p class="contact-lede">Open to interesting work: roles, consulting, or collaborations. Got an ambitious idea? I’d love to hear it.</p>
+    <p class="contact-lede">Roles, consulting, collaborations: if it’s interesting, I want to hear about it. Got an idea you can’t leave alone? Even better.</p>
     <a class="mail" href="mailto:joeystdio@gmail.com">joeystdio@gmail.com</a>
     <ul class="c-links">
       <li><a href="https://github.com/joeystdio" rel="noopener">GitHub</a></li>
@@ -676,6 +812,16 @@ details[open] .tog::before{content:"\2212"}
     var tick = function () { clock.textContent = fmt.format(new Date()); setTimeout(tick, 60000 - (Date.now() % 60000) + 50); };
     tick();
   } catch (e) {}
+
+  /* Deep links: #loqi, #qfd, #envy, #portradar and #ghostmouse open that row */
+  function openFromHash() {
+    var id = location.hash.slice(1);
+    var row = id && /^[a-z]+$/.test(id) && document.getElementById(id);
+    var d = row && row.querySelector('details');
+    if (d) { d.open = true; row.scrollIntoView(); }
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
 
   /* Manifest toggles: the small flap flips when someone opens or closes a row */
   [].forEach.call(document.querySelectorAll('.tt summary'), function (s) {
