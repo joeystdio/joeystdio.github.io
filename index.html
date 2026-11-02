@@ -1,483 +1,719 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Joey Stevense — Software Engineer (@joeystdio)</title>
-<meta name="description" content="Joey Stevense (@joeystdio) — a curious software engineer with 15+ years of shipping production systems, now using AI to turn a long list of ambitious ideas into real apps. Based in Bangkok." />
-
-<!-- Open Graph / social preview -->
-<meta property="og:title" content="Joey Stevense — Curious about everything" />
-<meta property="og:description" content="15+ years of production software, and a head full of ideas. Now AI turns them into real apps: iOS, macOS, web and AI systems." />
-<meta property="og:type" content="website" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joey Stevense — Software Engineer</title>
+<meta name="description" content="Joey Stevense is a Dutch software engineer in Bangkok, shipping software since 2007: iOS and macOS apps, developer tools and logistics apps.">
+<link rel="canonical" href="https://joeystdio.github.io/">
+<meta name="theme-color" content="#111214">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joeystdio.github.io/">
+<meta property="og:title" content="Joey Stevense — Software Engineer">
+<meta property="og:description" content="Curious about everything. Dutch software engineer in Bangkok, shipping software since 2007.">
+<meta property="og:image" content="https://joeystdio.github.io/assets/og.png">
+<meta property="og:image:alt" content="A split-flap departures board: Loqi, QFD and Envy departed; the next departure is question marks.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Crect x='5' y='3' width='22' height='26' fill='%231C1D20'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Menlo,Consolas,monospace' font-weight='700' font-size='22' fill='%23FFC917'%3EJ%3C/text%3E%3Crect x='5' y='15' width='22' height='2' fill='%23000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joey Stevense",
+  "url": "https://joeystdio.github.io/",
+  "jobTitle": "Software Engineer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bangkok", "addressCountry": "TH" },
+  "sameAs": ["https://github.com/joeystdio", "https://www.linkedin.com/in/joeystevense/"]
+}
+</script>
 <style>
-  :root {
-    --bg: #07080d;
-    --bg-soft: #0d0f17;
-    --panel: #11131d;
-    --border: #1e2230;
-    --text: #e7e9f0;
-    --muted: #8a90a6;
-    --c1: #22d3ee;   /* cyan */
-    --c2: #7c5cff;   /* violet */
-    --c3: #f472b6;   /* pink */
-    --accent-grad: linear-gradient(115deg, var(--c1), var(--c2) 55%, var(--c3));
-    --mono: 'JetBrains Mono', ui-monospace, monospace;
-    --sans: 'Inter', system-ui, sans-serif;
-  }
+:root{
+  --housing:#000;
+  --ground:#111214;
+  --flap:#1C1D20;
+  --open:#17181B;
+  --rule:#2B2C30;
+  --ink:#F2EDE3;
+  --muted:#8A8780;
+  --signal:#FFC917;
+  --cargo:#E8532F;
+  --harbour:#1F6F78;
+  --sans:"Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --cond:"Archivo", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --pad:clamp(16px, 4vw, 48px);
+  --max:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:24px;background:var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:1.125rem;line-height:1.55;font-weight:400;font-stretch:100%}
+img,svg{display:block;max-width:100%}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:800}
+ul,ol{margin:0;padding:0;list-style:none}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    line-height: 1.65;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
+a{color:inherit;text-decoration-line:underline;text-decoration-color:var(--signal);text-decoration-thickness:2px;text-underline-offset:.22em}
+a:hover{color:var(--signal)}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
 
-  /* animated background glow */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(40rem 40rem at 15% -10%, rgba(124,92,255,.18), transparent 60%),
-      radial-gradient(35rem 35rem at 100% 0%, rgba(34,211,238,.14), transparent 55%),
-      radial-gradient(30rem 30rem at 60% 120%, rgba(244,114,182,.12), transparent 60%);
-    z-index: -2;
-    animation: drift 18s ease-in-out infinite alternate;
-  }
-  @keyframes drift { to { transform: translate3d(0, -3%, 0) scale(1.05); } }
+.wrap{width:100%;max-width:calc(var(--max) + 2 * var(--pad));margin-inline:auto;padding-inline:var(--pad)}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:absolute;left:var(--pad);top:-80px;z-index:20;background:var(--signal);color:var(--ground);padding:.55em 1em;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.skip:hover{color:var(--ground)}
 
-  /* subtle grid */
-  body::after {
-    content: "";
-    position: fixed; inset: 0; z-index: -1; opacity: .4;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 56px 56px;
-    -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
-            mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
-  }
+/* ---------- Shared flap cell (board, logo, toggles) ---------- */
+.cell{position:relative;display:inline-grid;place-items:center;flex:none;width:var(--cw);height:var(--chh);background:var(--flap);color:var(--ink);font-family:var(--mono);font-weight:600;font-size:var(--cf);line-height:1}
+.cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--housing);z-index:3}
+.q,.cell.q{color:var(--signal)}
+.cell.live{perspective:calc(var(--chh) * 4)}
+.h{position:absolute;left:0;right:0;height:50%;overflow:hidden;background:var(--flap)}
+.h.t{top:0}
+.h.b{bottom:0}
+.h .g{position:absolute;left:0;right:0;height:200%;display:grid;place-items:center}
+.h.t .g{top:0}
+.h.b .g{bottom:0}
+.h.leaf{z-index:2;visibility:hidden;backface-visibility:hidden;will-change:transform}
+.h.leaf.t{transform-origin:50% 100%}
+.h.leaf.b{transform-origin:50% 0}
 
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-  .grad-text {
-    background: var(--accent-grad);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent; color: transparent;
-  }
-  .mono { font-family: var(--mono); }
+/* ---------- Header ---------- */
+.site-head{border-bottom:1px solid var(--rule)}
+.head-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;min-height:64px;padding-block:12px}
+.mark{display:inline-flex;gap:2px;text-decoration:none;--cw:22px;--chh:30px;--cf:19px}
+.mark .cell{color:var(--signal)}
+.mark:hover{color:inherit}
+.site-head ul{display:flex;flex-wrap:wrap;gap:4px clamp(16px, 3vw, 36px)}
+.site-head nav a{display:inline-block;padding-block:6px;font-weight:500;font-size:1rem;text-decoration:none}
+.site-head nav a:hover{text-decoration:underline;text-decoration-color:var(--signal)}
 
-  /* ---------- NAV ---------- */
-  nav {
-    position: sticky; top: 0; z-index: 50;
-    backdrop-filter: blur(12px);
-    background: rgba(7,8,13,.6);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { font-family: var(--mono); font-weight: 700; letter-spacing: .5px; }
-  .brand .dot { color: var(--c1); }
-  .nav-links { display: flex; gap: 28px; font-size: 14px; }
-  .nav-links a { color: var(--muted); transition: color .2s; }
-  .nav-links a:hover { color: var(--text); }
-  @media (max-width: 680px) { .nav-links { display: none; } }
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"ident" "head" "intro" "board" "links";padding-top:clamp(28px, 4.5vw, 52px);padding-bottom:clamp(72px, 10vw, 136px)}
+.ident{grid-area:ident;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px}
+.ident h1{font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:1.75rem;line-height:1.1;letter-spacing:.005em}
+.tagline{color:var(--muted);font-size:1rem}
+.headline{grid-area:head;font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:clamp(3.4rem, 13.6vw, 8.75rem);line-height:.86;letter-spacing:-.008em;margin:.16em 0 .3em;text-wrap:balance}
+.intro{grid-area:intro;max-width:60ch;font-size:clamp(1.125rem, 1.4vw, 1.25rem);line-height:1.55}
+.hero-links{grid-area:links;display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;font-weight:500}
+.hero-links a{display:inline-block;padding-block:4px}
 
-  /* ---------- HERO ---------- */
-  header { padding: 90px 0 70px; }
-  .kicker {
-    font-family: var(--mono); font-size: 13px; color: var(--c1);
-    letter-spacing: 1px; margin-bottom: 18px;
-    display: inline-flex; align-items: center; gap: 10px;
-  }
-  .kicker .pulse {
-    width: 8px; height: 8px; border-radius: 50%; background: #2ee6a6;
-    box-shadow: 0 0 0 0 rgba(46,230,166,.6); animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(46,230,166,.6); }
-    70% { box-shadow: 0 0 0 10px rgba(46,230,166,0); }
-    100% { box-shadow: 0 0 0 0 rgba(46,230,166,0); }
-  }
-  h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1.04; font-weight: 800; letter-spacing: -1.5px; }
-  .hero-sub { font-size: clamp(1.05rem, 2.4vw, 1.35rem); color: var(--muted); max-width: 640px; margin-top: 22px; }
-  .hero-sub strong { color: var(--text); font-weight: 600; }
+/* Board: a departures list. Project names are split-flap cells; destination and status are printed. */
+.board{
+  grid-area:board;
+  --gap:3px;
+  --cw:clamp(20px, calc((100vw - 320px) / 26), 40px);
+  --chh:calc(var(--cw) * 1.42);
+  --cf:calc(var(--cw) * 1.2);
+  margin-top:clamp(28px, 3.4vw, 44px);
+  background:var(--housing);
+  border:1px solid var(--rule);
+  padding:clamp(14px, 2.4vw, 28px);
+}
+.b-top{display:flex;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.8125rem;line-height:1.2;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.b-clock span{color:var(--ink)}
+.b-row{display:grid;grid-template-columns:calc(10 * var(--cw) + 9 * var(--gap)) minmax(0,1fr) max-content;column-gap:clamp(16px, 3vw, 40px);align-items:center;padding-block:10px;border-bottom:1px solid var(--rule)}
+.b-row:last-child{border-bottom:0;padding-bottom:0}
+.b-head{padding-block:12px 2px;border-bottom:0;font-family:var(--mono);font-size:.75rem;line-height:1.2;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.b-head span:last-child{text-align:right}
+.flaps{display:flex;gap:var(--gap)}
+.b-dst,.b-st{font-family:var(--mono);font-weight:600;font-size:clamp(.875rem, 1.35vw, 1.0625rem);line-height:1.2;text-transform:uppercase;letter-spacing:.06em}
+.b-st{color:var(--muted);text-align:right}
+.b-next .b-dst,.b-next .b-st{color:var(--signal)}
 
-  .terminal {
-    margin-top: 34px; max-width: 560px;
-    background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
-    font-family: var(--mono); font-size: 14px; overflow: hidden;
-    box-shadow: 0 30px 60px -30px rgba(0,0,0,.8);
-  }
-  .term-bar { display: flex; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--border); }
-  .term-bar span { width: 11px; height: 11px; border-radius: 50%; }
-  .term-bar span:nth-child(1){ background:#ff5f56; }
-  .term-bar span:nth-child(2){ background:#ffbd2e; }
-  .term-bar span:nth-child(3){ background:#27c93f; }
-  .term-body { padding: 16px 18px; min-height: 78px; }
-  .term-body .prompt { color: var(--c1); }
-  .term-body .path { color: var(--c2); }
-  #typed { color: var(--text); }
-  .cursor { display: inline-block; width: 9px; height: 17px; background: var(--c1); margin-left: 2px; vertical-align: middle; animation: blink 1s steps(2) infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
+/* ---------- Sections ---------- */
+.sec{padding-bottom:clamp(80px, 11vw, 152px)}
+.sec h2{font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:clamp(2.75rem, 6.4vw, 4.75rem);line-height:.9;margin-bottom:clamp(24px, 3vw, 40px)}
 
-  .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: 12px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
-    border: 1px solid var(--border); color: var(--text); transition: all .2s;
-  }
-  .btn:hover { transform: translateY(-2px); border-color: var(--c2); }
-  .btn.primary { background: var(--accent-grad); color: #07080d; border: none; }
-  .btn.primary:hover { box-shadow: 0 14px 30px -10px rgba(124,92,255,.6); }
+/* ---------- Timetable ---------- */
+.tt{--ic:56px;--cols:var(--ic) minmax(0,1.35fr) minmax(0,1fr) minmax(0,.8fr) 40px;--cg:clamp(14px, 2vw, 24px)}
+.tt-head{display:grid;grid-template-columns:var(--cols);column-gap:var(--cg);padding:0 12px 10px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:.75rem;line-height:1.2;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tt-head span:first-child{grid-column:1 / 3}
+.tt-head span:last-child{justify-self:end}
+.tt-rows > li,.grp-rows > li{border-bottom:1px solid var(--rule)}
+.tt summary{display:block;list-style:none;cursor:pointer;padding:14px 12px}
+.tt summary::-webkit-details-marker{display:none}
+.tt summary:hover{background:var(--flap)}
+.tt summary:focus-visible{outline-offset:-3px}
+.tt details[open]{background:var(--open)}
+.r{display:grid;grid-template-columns:var(--cols);column-gap:var(--cg);align-items:center}
+.ic{width:36px;height:36px}
+.ic img,.ic svg{width:100%;height:100%}
+.mk-qfd{display:grid;place-items:center;width:100%;height:100%;background:var(--flap);border:1px solid var(--rule);font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:1.0625rem;letter-spacing:.02em;color:var(--ink);position:relative}
+.mk-qfd::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--housing)}
+.mk-qfd span{position:relative;z-index:1}
+.r-name{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.nm{font-family:var(--cond);font-stretch:62%;font-weight:700;font-size:1.625rem;line-height:1.05;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.sub{font-size:.9375rem;color:var(--muted);line-height:1.3;margin-top:2px}
+.tag{font-family:var(--mono);font-stretch:100%;font-weight:600;font-size:.6875rem;line-height:1;letter-spacing:.06em;text-transform:uppercase;background:var(--cargo);color:var(--ground);padding:4px 6px 3px}
+.r-cargo,.r-dest{font-family:var(--mono);font-size:.875rem;line-height:1.35;text-transform:uppercase;letter-spacing:.02em}
+.r-dest{font-weight:600}
+.tog{--cw:30px;--chh:38px;--cf:20px;justify-self:end;perspective:160px}
+.tog::before{content:"+";display:block;position:relative;z-index:1;color:var(--signal)}
+.tog::after{display:none}
+details[open] .tog::before{content:"\2212"}
+.tog.flip::before{animation:tflip .26s cubic-bezier(.2,.7,.3,1)}
+@keyframes tflip{from{transform:rotateX(-90deg)}to{transform:rotateX(0)}}
 
-  /* ---------- SECTIONS ---------- */
-  section { padding: 64px 0; }
-  .sec-label { font-family: var(--mono); font-size: 13px; color: var(--c2); letter-spacing: 1px; margin-bottom: 12px; }
-  .sec-title { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.5px; margin-bottom: 28px; }
-  .lead { font-size: 1.08rem; color: var(--muted); max-width: 720px; }
-  .lead strong { color: var(--text); }
+.express summary{padding-block:22px}
+.express .ic{width:56px;height:56px}
+.express .mk-qfd{font-size:1.5rem}
+.express .nm{font-weight:800;font-size:clamp(2rem, 3.4vw, 2.75rem);line-height:.95}
 
-  /* focus pills */
-  .pills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-  .pill {
-    font-family: var(--mono); font-size: 13px; color: var(--text);
-    padding: 9px 15px; border: 1px solid var(--border); border-radius: 999px;
-    background: var(--bg-soft);
-  }
-  .pill b { color: var(--c1); font-weight: 700; }
+.grp{border-left:4px solid var(--harbour);margin-top:20px}
+.grp-h{padding:12px 12px 12px 8px;font-weight:600;font-size:1rem;line-height:1.3;border-bottom:1px solid var(--rule)}
+.grp-rows summary{padding-left:8px}
+.grp-rows .mf{padding-left:8px}
 
-  /* projects */
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 20px; }
-  .card {
-    position: relative; background: var(--panel); border: 1px solid var(--border);
-    border-radius: 16px; padding: 26px; transition: transform .25s, border-color .25s;
-    overflow: hidden;
-  }
-  .card::before {
-    content: ""; position: absolute; inset: 0; padding: 1px; border-radius: 16px;
-    background: var(--accent-grad); opacity: 0;
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude; transition: opacity .25s;
-  }
-  .card:hover { transform: translateY(-4px); }
-  .card:hover::before { opacity: 1; }
-  .card .tag { font-family: var(--mono); font-size: 11px; letter-spacing: .5px; text-transform: uppercase; color: var(--c1); }
-  .card h3 { font-size: 1.35rem; font-weight: 700; margin: 8px 0 10px; }
-  .card p { color: var(--muted); font-size: .96rem; }
-  .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .stack span { font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 4px 9px; border-radius: 6px; }
-  .status { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-family:var(--mono); color:#2ee6a6; margin-top:14px; }
-  .status .d { width:7px;height:7px;border-radius:50%;background:#2ee6a6; }
+/* Manifest */
+.mf{display:grid;grid-template-columns:var(--cols);column-gap:var(--cg);padding:2px 12px 28px}
+.mf-main{grid-column:2 / 4;display:flex;flex-direction:column;align-items:flex-start;gap:16px;max-width:62ch}
+.mf-desc{font-size:1.0625rem;line-height:1.55}
+.mf-facts{grid-column:4 / 6;margin:0;display:grid;gap:12px;align-content:start;padding-top:3px}
+.mf-facts dt{font-family:var(--mono);font-size:.75rem;line-height:1.2;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mf-facts dd{margin:3px 0 0;font-size:1rem;line-height:1.35}
+.act{display:inline-block;font-weight:600;font-size:1.0625rem;padding-block:2px}
+.act-none{font-family:var(--mono);font-size:.875rem;text-transform:uppercase;letter-spacing:.02em;color:var(--muted)}
+.cmd{display:flex;align-items:stretch;max-width:100%;background:var(--housing);border:1px solid var(--rule)}
+.cmd code{display:block;padding:9px 12px;font-family:var(--mono);font-size:.8125rem;line-height:1.4;color:var(--ink);overflow-wrap:anywhere;min-width:0}
+.copy{flex:none;font:600 .75rem/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink);background:var(--flap);border:0;border-left:1px solid var(--rule);padding:0 12px;cursor:pointer;min-height:40px}
+.copy:hover{color:var(--signal)}
+.copy:focus-visible{outline-offset:-3px}
 
-  /* experience timeline */
-  .tl { border-left: 2px solid var(--border); margin-left: 6px; padding-left: 26px; display: flex; flex-direction: column; gap: 30px; }
-  .tl-item { position: relative; }
-  .tl-item::before {
-    content: ""; position: absolute; left: -33px; top: 6px;
-    width: 12px; height: 12px; border-radius: 50%; background: var(--bg);
-    border: 2px solid var(--c2);
-  }
-  .tl-item.now::before { background: var(--accent-grad); border: none; box-shadow: 0 0 12px var(--c2); }
-  .tl-date { font-family: var(--mono); font-size: 12px; color: var(--c1); }
-  .tl-item h4 { font-size: 1.12rem; font-weight: 700; margin: 4px 0 2px; }
-  .tl-item .co { color: var(--muted); font-size: .95rem; }
-  .tl-item p { color: var(--muted); font-size: .94rem; margin-top: 8px; }
+/* ---------- About ---------- */
+.about{display:grid;grid-template-columns:minmax(0,1fr)}
+.about-body{display:grid;gap:1.1em;max-width:62ch;font-size:clamp(1.125rem, 1.45vw, 1.3125rem);line-height:1.6}
 
-  /* skills */
-  .skillcols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 22px; }
-  .skillcols h4 { font-family: var(--mono); font-size: 13px; color: var(--c2); margin-bottom: 12px; letter-spacing: .5px; }
-  .skillcols ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
-  .skillcols li { font-size: 13px; color: var(--text); background: var(--bg-soft); border: 1px solid var(--border); padding: 6px 11px; border-radius: 7px; }
+/* ---------- Experience / route ---------- */
+.route{--yc:6.5rem;--mc:26px;--g:clamp(16px, 2.4vw, 32px);position:relative}
+.port{position:relative;display:grid;grid-template-columns:var(--yc) var(--mc) minmax(0,1fr) minmax(0,1.45fr);column-gap:var(--g);padding-bottom:clamp(40px, 5vw, 64px)}
+.port::before{content:"";position:absolute;top:14px;bottom:-14px;left:calc(var(--yc) + var(--g) + var(--mc) / 2 - 3px);width:6px;background:var(--harbour)}
+.port:last-child{padding-bottom:0}
+.port:last-child::before{display:none}
+.p-year{grid-column:1;font-family:var(--mono);font-weight:600;font-size:.9375rem;line-height:1;padding-top:8px;text-transform:uppercase;letter-spacing:.02em}
+.p-stop{grid-column:2;justify-self:center;position:relative;z-index:1;width:20px;height:20px;margin-top:4px;background:var(--ink);outline:5px solid var(--ground)}
+.p-stop.cargo{background:var(--cargo)}
+.p-stop.here{width:26px;height:26px;margin-top:1px;background:var(--signal)}
+.p-head{grid-column:3;min-width:0}
+.p-name{font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:clamp(2.25rem, 4.4vw, 3.5rem);line-height:.9}
+.p-role{margin-top:12px;font-weight:600;font-size:1.0625rem;line-height:1.35}
+.p-dates{margin-top:4px;font-family:var(--mono);font-size:.8125rem;color:var(--muted);text-transform:uppercase;letter-spacing:.02em}
+.p-text{grid-column:4;max-width:60ch;font-size:1.0625rem;line-height:1.6;padding-top:4px}
+.edu{margin-top:clamp(40px, 5vw, 64px);padding-top:16px;border-top:1px solid var(--rule);font-size:1rem;color:var(--muted)}
+.edu strong{color:var(--ink);font-weight:600}
 
-  /* contact */
-  .contact-box { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 44px; text-align: center; }
-  .contact-box h2 { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 800; margin-bottom: 14px; }
-  .contact-box p { color: var(--muted); max-width: 520px; margin: 0 auto 26px; }
+/* ---------- Contact ---------- */
+.sec.contact{padding-bottom:clamp(64px, 8vw, 112px)}
+.contact-lede{max-width:44ch;font-size:clamp(1.25rem, 2vw, 1.625rem);line-height:1.4}
+.mail{display:inline-block;margin-top:clamp(24px, 3vw, 36px);max-width:100%;background:var(--signal);color:var(--ground);text-decoration:none;font-family:var(--cond);font-stretch:62%;font-weight:800;font-size:clamp(2rem, 7vw, 4.5rem);line-height:1;padding:.2em .32em .24em;overflow-wrap:anywhere}
+.mail:hover{background:var(--ink);color:var(--ground)}
+.mail:focus-visible{outline-offset:4px}
+.c-links{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px;margin-top:28px;font-weight:500}
+.c-links a{display:inline-block;padding-block:4px}
+.c-links .coffee{font-size:.9375rem;font-weight:400;color:var(--muted)}
+.c-links .coffee a{color:var(--muted)}
+.c-links .coffee a:hover{color:var(--signal)}
 
-  footer { border-top: 1px solid var(--border); padding: 30px 0 50px; color: var(--muted); font-size: 13px; }
-  .foot-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; }
-  .foot-inner .mono { color: var(--muted); }
+/* ---------- Footer ---------- */
+.foot{border-top:1px solid var(--rule);font-size:.9375rem;color:var(--muted)}
+.foot .wrap{padding-block:22px 28px}
 
-  /* reveal animation */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
+/* ---------- Wider screens ---------- */
+@media (min-width:900px){
+  .hero{grid-template-columns:minmax(0,7fr) minmax(0,4fr);column-gap:clamp(32px, 5vw, 80px);grid-template-areas:"ident ident" "head head" "intro links" "board board"}
+  .hero-links{flex-direction:column;align-items:flex-start;align-self:end;justify-self:end;gap:6px;margin-top:0}
+  .about{grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(32px, 5vw, 80px)}
+}
 
-  .editnote { font-size:11px; color:#5a6075; font-family:var(--mono); margin-top:18px; }
+/* ---------- Tablet: route stacks description under the port ---------- */
+@media (max-width:899px){
+  .port{grid-template-columns:var(--yc) var(--mc) minmax(0,1fr)}
+  .p-text{grid-column:3;padding-top:14px}
+}
+
+/* ---------- Phone ---------- */
+@media (max-width:699px){
+  .board{--gap:2px;--cw:min(30px, calc((100vw - 96px) / 10))}
+  .b-head{display:none}
+  .b-row{grid-template-columns:minmax(0,1fr) max-content;grid-template-areas:"fl fl" "ds st";row-gap:8px}
+  .b-row .flaps{grid-area:fl}
+  .b-dst{grid-area:ds}
+  .b-st{grid-area:st}
+
+  .head-in{min-height:0;padding-block:10px;column-gap:12px}
+  .site-head ul{column-gap:14px}
+  .site-head nav a{font-size:.9375rem}
+
+  .tt{--cg:10px}
+  .tt-head{display:none}
+  .tt-rows{border-top:2px solid var(--ink)}
+  .tt summary,.express summary{padding:14px 0}
+  .r{grid-template-columns:var(--ic) minmax(0,1fr) auto 30px;grid-template-areas:"ic nm nm tog" "ic cg ds tog";row-gap:6px;align-items:start}
+  .tt{--ic:32px}
+  .express{--ic:40px}
+  .ic{grid-area:ic;width:var(--ic);height:var(--ic)}
+  .express .ic{width:var(--ic);height:var(--ic)}
+  .express .mk-qfd{font-size:1rem}
+  .r-name{grid-area:nm;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+  .nm,.express .nm{font-size:1.5rem}
+  .express .nm{font-size:1.75rem}
+  .sub{font-size:.875rem;margin:0}
+  .r-cargo{grid-area:cg}
+  .r-dest{grid-area:ds;text-align:right}
+  .r-cargo,.r-dest{font-size:.75rem}
+  .tog{grid-area:tog;--cw:28px;--chh:34px;--cf:18px;align-self:center}
+  .mf{display:flex;flex-direction:column;gap:18px;padding:0 0 24px calc(var(--ic) + var(--cg))}
+  .grp-rows summary,.grp-rows .mf{padding-left:10px}
+  .grp-rows .mf{padding-left:calc(var(--ic) + var(--cg) + 10px)}
+  .grp-h{padding-left:10px}
+  .mf-facts{grid-template-columns:repeat(auto-fit, minmax(min(150px, 100%), 1fr))}
+
+  .route{--mc:22px}
+  .port{grid-template-columns:var(--mc) minmax(0,1fr);grid-template-areas:"stop year" "stop head" "stop text";column-gap:16px}
+  .port::before{left:calc(var(--mc) / 2 - 3px)}
+  .p-year{grid-area:year;padding:2px 0 10px}
+  .p-stop{grid-area:stop;align-self:start;margin-top:0}
+  .p-stop.here{margin-top:-3px}
+  .port::before{top:10px;bottom:-10px}
+  .p-head{grid-area:head}
+  .p-text{grid-area:text}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+@media print{
+  :root{--ground:#fff;--housing:#fff;--flap:#fff;--open:#fff;--ink:#000;--muted:#333;--rule:#999;--signal:#000;--cargo:#000;--harbour:#666}
+  html,body{background:#fff;color:#000}
+  .skip,.site-head nav,.copy,.tog{display:none}
+  .cell{border:1px solid #000}
+  .tag{color:#fff}
+  .mail{background:none;color:#000;border:2px solid #000}
+  .tt summary:hover{background:none}
+  .p-stop{outline:0;border:2px solid #000}
+  a{text-decoration-color:#000}
+  .mf a[href^="http"]::after,.c-links a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;font-weight:400}
+  .sec,.hero{padding-bottom:40px}
+  .port,.tt-rows > li{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav>
-  <div class="wrap nav-inner">
-    <div class="brand">joey<span class="dot">stdio</span></div>
-    <div class="nav-links">
-      <a href="#about">about</a>
-      <a href="#focus">focus</a>
-      <a href="#projects">projects</a>
-      <a href="#experience">experience</a>
-      <a href="#contact">contact</a>
-    </div>
-  </div>
-</nav>
-
-<header>
-  <div class="wrap">
-    <div class="kicker reveal"><span class="pulse"></span> SOFTWARE ENGINEER · BANGKOK 🇹🇭</div>
-    <h1 class="reveal">Joey Stevense.<br /><span class="grad-text">Curious about everything.</span></h1>
-    <p class="hero-sub reveal">
-      <strong>15+ years</strong> of shipping production software, and the curiosity never wore off.
-      New languages, new stacks, new tools: I want to try all of it. With AI in the toolbox, an idea on
-      Friday can be a <strong>full SaaS app by Monday</strong>. Think of it as a box of chocolates:
-      you never know what I'll build next.
-    </p>
-
-    <div class="terminal reveal">
-      <div class="term-bar"><span></span><span></span><span></span></div>
-      <div class="term-body">
-        <span class="prompt">joeystdio@bkk</span>:<span class="path">~</span>$ <span id="typed"></span><span class="cursor"></span>
-      </div>
-    </div>
-
-    <div class="cta reveal">
-      <a class="btn primary" href="#projects">View projects →</a>
-      <a class="btn" href="https://github.com/joeystdio" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/joeystevense/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="mailto:joeystdio@gmail.com">Email</a>
-    </div>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="mark" href="#top" aria-label="Joey Stevense, back to top"><span class="cell" aria-hidden="true">J</span><span class="cell" aria-hidden="true">S</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<section id="about">
-  <div class="wrap">
-    <div class="sec-label reveal">// about</div>
-    <h2 class="sec-title reveal">Lead engineer, lifelong nerd, perpetual learner.</h2>
-    <p class="lead reveal">
-      I'm a Dutch software engineer based in <strong>Bangkok</strong>, where I've lived and worked since
-      late 2023. I started as a full stack developer on recruitment platforms, then built telephony systems
-      handling thousands of calls a day, where I joined the architecture team that moved desktop software to
-      the cloud. Since 2018 I've been the lead developer on worldwide logistics apps, these days from Bangkok
-      through Iglu Thailand. Mostly <strong>.NET, Angular, and microservices on Azure</strong>, with a long
-      tail of C++, Java, and everything in between.
-    </p>
-    <p class="lead reveal" style="margin-top:18px;">
-      What's consistent across all of it: I like hard problems, I can't leave a good idea alone, and I ship.
-      These days that means a meeting companion on the App Store, a jukebox that keeps the peace at
-      my friend's bar, and the developer tools I always wished I had. You'll find some of it below.
-    </p>
-  </div>
-</section>
-
-<section id="focus">
-  <div class="wrap">
-    <div class="sec-label reveal">// how I build now</div>
-    <h2 class="sec-title reveal">From idea to app, end-to-end.</h2>
-    <p class="lead reveal">
-      AI didn't replace engineering for me; it removed the gap between an idea and a working product.
-      I use it every day to explore unfamiliar stacks, prototype fast, and take the good ideas all the way:
-      to the App Store, to Homebrew, or into production at work. <strong>Fifteen years of engineering is what
-      keeps it solid.</strong>
-    </p>
-    <div class="pills reveal">
-      <div class="pill"><b>›</b> iOS &amp; mobile apps</div>
-      <div class="pill"><b>›</b> macOS tools</div>
-      <div class="pill"><b>›</b> Web apps &amp; PWAs</div>
-      <div class="pill"><b>›</b> AI &amp; LLM systems</div>
-      <div class="pill"><b>›</b> Agents &amp; MCP</div>
-      <div class="pill"><b>›</b> .NET &amp; cloud</div>
+<main id="main">
+  <section class="hero wrap" id="top" aria-labelledby="name">
+    <div class="ident">
+      <h1 id="name">Joey Stevense</h1>
+      <p class="tagline">Dutch software engineer in Bangkok. Shipping software since 2007.</p>
     </div>
-  </div>
-</section>
+    <p class="headline">Curious about everything.</p>
+    <p class="intro">15+ years of shipping production software, and the curiosity never wore off. New languages, new stacks, new tools: I want to try all of it. With AI in the toolbox, an idea on Friday can be a full SaaS app by Monday. Think of it as a box of chocolates: you never know what I’ll build next.</p>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-label reveal">// projects</div>
-    <h2 class="sec-title reveal">Some of what I've built.</h2>
-    <div class="grid">
-
-      <div class="card reveal">
-        <div class="tag">Flagship · iOS</div>
-        <h3>Loqi</h3>
-        <p>An AI meeting companion for iOS. Record a meeting and get back an accurate transcript, a clean
-        summary, and the action items that matter. Built solo, end-to-end: mobile app, AI backend, and a
-        freemium subscription model.</p>
-        <div class="stack"><span>React Native (Expo)</span><span>TypeScript</span><span>Firebase</span><span>Vertex AI · Gemini</span><span>RevenueCat</span></div>
-        <div class="status"><span class="d"></span> Live on the App Store</div>
-      </div>
-
-      <div class="card reveal">
-        <div class="tag">Production · Applied AI</div>
-        <h3>AI quote &amp; semantic search engine</h3>
-        <p>The AI layer of a global shipping &amp; logistics platform. Inbound quote-request emails are parsed
-        and structured by an LLM, then enriched against a semantic-search layer — Vertex AI embeddings over a
-        pgvector store of carriers, sailing schedules, ports, and organizations. Turns messy email threads
-        into accurate, automated quotations.</p>
-        <div class="stack"><span>.NET 8</span><span>Semantic Kernel</span><span>Vertex AI</span><span>pgvector / RAG</span><span>Azure microservices</span></div>
-        <div class="status"><span class="d"></span> In production</div>
-      </div>
-
-      <div class="card reveal">
-        <div class="tag">Personal · Web app</div>
-        <h3>QFD — Queue For Degenerates</h3>
-        <p>Born at a friend's bar, where one mistap on the shared Spotify tablet skips the song someone was
-        waiting for. Instant vibe kill. QFD fixes it: guests scan a QR code and queue songs from their own
-        phones (no app, no account), every pick plays in turn, and nobody can skip anyone else's song. Works
-        for bars, birthdays, or any party. The owner connects Spotify once; everything updates in real time.</p>
-        <div class="stack"><span>Next.js 16</span><span>React 19</span><span>Supabase Realtime</span><span>Drizzle</span><span>Spotify OAuth</span></div>
-      </div>
-
-      <div class="card reveal">
-        <div class="tag">Open Source · macOS</div>
-        <h3><a href="https://github.com/joeystdio/envy" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Envy ↗</a></h3>
-        <p>A native macOS app that keeps environment variables and secrets for your terminal and AI coding agents — global and per-project sets, direnv-style folder loading, one-click on/off, secrets in the Keychain instead of dotfiles, and import from .env and .NET appsettings — 100% free and open source.</p>
-        <div class="stack"><span>Swift</span><span>SwiftUI</span><span>Keychain</span><span>zsh / bash</span><span>Homebrew</span></div>
-        <div class="status"><span class="d"></span> Live on <a href="https://github.com/joeystdio/envy" target="_blank" rel="noopener" style="color:var(--c1);text-decoration:none;margin-left:4px;">GitHub &amp; Homebrew</a></div>
-      </div>
-
-      <div class="card reveal">
-        <div class="tag">Open Source · macOS</div>
-        <h3><a href="https://github.com/joeystdio/PortRadar" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">PortRadar ↗</a></h3>
-        <p>A native macOS menu bar radar for developers to monitor listening TCP ports, auto-detect frameworks (Next.js, Vite, .NET, Docker, Postgres, Redis), view live RAM/CPU, and kill stuck localhost ports in 1 click — 100% free and open source.</p>
-        <div class="stack"><span>Swift</span><span>SwiftUI</span><span>AppKit</span><span>lsof / POSIX</span><span>Homebrew</span></div>
-        <div class="status"><span class="d"></span> Live on <a href="https://github.com/joeystdio/PortRadar" target="_blank" rel="noopener" style="color:var(--c1);text-decoration:none;margin-left:4px;">GitHub &amp; Homebrew</a></div>
-      </div>
-
-      <div class="card reveal">
-        <div class="tag">Open Source · macOS</div>
-        <h3><a href="https://github.com/joeystdio/GhostMouse" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">GhostMouse ↗</a></h3>
-        <p>A native macOS menu bar mouse mover &amp; awake utility with true invisible Stealth mode (zero-displacement HID pulses), instant keyboard/mouse auto-deactivation, work schedules, and countdown timers — 100% free and open source.</p>
-        <div class="stack"><span>Swift</span><span>SwiftUI</span><span>AppKit</span><span>CoreGraphics HID</span><span>IOKit</span><span>Homebrew</span></div>
-        <div class="status"><span class="d"></span> Live on <a href="https://github.com/joeystdio/GhostMouse" target="_blank" rel="noopener" style="color:var(--c1);text-decoration:none;margin-left:4px;">GitHub &amp; Homebrew</a></div>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-label reveal">// experience</div>
-    <h2 class="sec-title reveal">Shipping since 2007.</h2>
-    <div class="tl">
-      <div class="tl-item now reveal">
-        <div class="tl-date">2018 — Present</div>
-        <h4>Lead Software Developer</h4>
-        <div class="co">VBE Group · from Bangkok via Iglu Thailand since late 2023</div>
-        <p>Lead engineer on worldwide logistics web apps (bookings, quotes, and sailing schedules) built on an
-        Angular + .NET microservices architecture, secured by a custom OpenID/OAuth identity server. Introduced
-        Scrum, and drive architecture, code reviews, mentoring, and CI/CD on GitHub &amp; Azure DevOps. Lately
-        also building the AI layer: LLM extraction, embeddings, and semantic search.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-date">2014 — 2018</div>
-        <h4>Full Stack Developer</h4>
-        <div class="co">JDM Software (now Anywhere 365)</div>
-        <p>Built telephony services in C++ handling thousands of calls a day, and a web-based replacement for the
-        C++ attendant console (Angular + .NET Core on Azure Kubernetes). As part of the architecture team, helped
-        steer the move from on-prem desktop apps to the cloud.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-date">2007 — 2014</div>
-        <h4>Full Stack Developer</h4>
-        <div class="co">Connexys (now Bullhorn)</div>
-        <p>Built recruitment platform features, hundreds of career sites, and a Java/Solr resume-indexing engine
-        powering a Salesforce-based product. Play! Framework, Oracle PL/SQL, and front-end.</p>
+    <div class="board" id="board">
+      <p class="vh">Departures board. Loqi to the App Store: departed. QFD to a friend’s bar: departed. Envy to Homebrew: departed. Next: destination unknown, boarding.</p>
+      <div aria-hidden="true">
+        <div class="b-top"><span>Departures</span><span class="b-clock">Bangkok <span id="clock">UTC+7</span></span></div>
+        <div class="b-row b-head"><span>Project</span><span>Destination</span><span>Status</span></div>
+        <div class="b-row"><span class="flaps" data-flaps="r1"><span class="cell">L</span><span class="cell">O</span><span class="cell">Q</span><span class="cell">I</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></span><span class="b-dst">App Store</span><span class="b-st">Departed</span></div>
+        <div class="b-row"><span class="flaps" data-flaps="r2"><span class="cell">Q</span><span class="cell">F</span><span class="cell">D</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></span><span class="b-dst">A friend’s bar</span><span class="b-st">Departed</span></div>
+        <div class="b-row"><span class="flaps" data-flaps="r3"><span class="cell">E</span><span class="cell">N</span><span class="cell">V</span><span class="cell">Y</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></span><span class="b-dst">Homebrew</span><span class="b-st">Departed</span></div>
+        <div class="b-row b-next"><span class="flaps" data-flaps="r4"><span class="cell q">?</span><span class="cell"></span><span class="cell q">?</span><span class="cell"></span><span class="cell q">?</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></span><span class="b-dst">? ? ?</span><span class="b-st">Boarding</span></div>
       </div>
     </div>
-  </div>
-</section>
+    <script>
+    /* Split-flap board: the rows clatter in once, one after another, when the board is on screen.
+       Without JS or with reduced motion the final state above stays. */
+    (function () {
+      var board = document.getElementById('board');
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !board.animate || !window.Promise) return;
 
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-label reveal">// stack</div>
-    <h2 class="sec-title reveal">What I work with.</h2>
-    <div class="skillcols">
-      <div class="reveal">
-        <h4>AI / Agents</h4>
-        <ul><li>LLM apps</li><li>Agentic systems</li><li>Semantic Kernel</li><li>Embeddings</li><li>RAG / pgvector</li><li>MCP</li><li>LangGraph</li><li>Prompt design</li></ul>
-      </div>
-      <div class="reveal">
-        <h4>Backend</h4>
-        <ul><li>C#</li><li>.NET / Core</li><li>Microservices</li><li>Java</li><li>C++</li><li>SQL Server</li><li>Oracle</li><li>REST / SOAP</li></ul>
-      </div>
-      <div class="reveal">
-        <h4>Frontend / Mobile</h4>
-        <ul><li>Swift / SwiftUI</li><li>React / Next.js</li><li>React Native</li><li>Angular</li><li>TypeScript</li><li>JavaScript</li><li>SCSS</li></ul>
-      </div>
-      <div class="reveal">
-        <h4>Cloud / DevOps</h4>
-        <ul><li>Azure</li><li>Docker</li><li>Kubernetes</li><li>Firebase</li><li>CI/CD</li><li>Git</li><li>Linux</li></ul>
-      </div>
+      var DRUM = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ?';
+      var MAX_FLIPS = 6, FLIP_MS = 72, STAGGER = 28;
+      var groups = {};
+      var FINAL = { r1: 'LOQI', r2: 'QFD', r3: 'ENVY', r4: '? ? ?' };
+
+      function half(cls) {
+        var h = document.createElement('span'); h.className = 'h ' + cls;
+        var g = document.createElement('span'); g.className = 'g';
+        h.appendChild(g); return h;
+      }
+      function paint(h, c) {
+        var g = h.firstChild;
+        g.textContent = c === ' ' ? '' : c;
+        g.className = c === '?' ? 'g q' : 'g';
+      }
+      /* In view on load: start from a blank board. Below the fold: keep the final
+         state visible and let the destination clatter once when it scrolls in. */
+      var box = board.getBoundingClientRect();
+      var blankStart = box.top < (window.innerHeight || 800) * 0.8 && box.bottom > 0;
+      function upgrade(el) {
+        var ch = blankStart ? ' ' : (el.textContent || ' ');
+        el.textContent = ''; el.classList.remove('q'); el.classList.add('live');
+        var cell = { t: half('t'), b: half('b'), lt: half('t leaf'), lb: half('b leaf'), cur: ch };
+        el.appendChild(cell.t); el.appendChild(cell.b); el.appendChild(cell.lt); el.appendChild(cell.lb);
+        paint(cell.t, ch); paint(cell.b, ch);
+        return cell;
+      }
+      [].forEach.call(board.querySelectorAll('[data-flaps]'), function (g) {
+        groups[g.getAttribute('data-flaps')] = [].map.call(g.children, upgrade);
+      });
+
+      function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+      var halted = false;
+      function flip(cell, next, ms) {
+        if (halted) return Promise.resolve();
+        paint(cell.t, next); paint(cell.b, cell.cur); paint(cell.lt, cell.cur); paint(cell.lb, next);
+        cell.lt.style.visibility = cell.lb.style.visibility = 'visible';
+        var a = cell.lt.animate([{ transform: 'rotateX(0deg)' }, { transform: 'rotateX(-90deg)' }],
+          { duration: ms / 2, easing: 'cubic-bezier(.55,0,1,.45)', fill: 'forwards' });
+        var b = cell.lb.animate([{ transform: 'rotateX(90deg)' }, { transform: 'rotateX(0deg)' }],
+          { duration: ms / 2, delay: ms / 2, easing: 'cubic-bezier(0,.55,.45,1)', fill: 'both' });
+        /* Timers, not animation promises, move the state on, so the board
+           always reaches its final text even when frames are throttled. */
+        return wait(ms).then(function () {
+          paint(cell.b, next);
+          cell.lt.style.visibility = cell.lb.style.visibility = 'hidden';
+          a.cancel(); b.cancel(); cell.cur = next;
+        });
+      }
+      function route(from, to) {
+        var n = DRUM.length, i = Math.max(0, DRUM.indexOf(from)), j = Math.max(0, DRUM.indexOf(to));
+        var steps = (j - i + n) % n, k = Math.min(steps, MAX_FLIPS), out = [];
+        for (var s = k - 1; s >= 0; s--) out.push(DRUM[(j - s + n) % n]);
+        return out;
+      }
+      function run(cell, to, delay) {
+        var path = route(cell.cur, to);
+        var p = wait(delay);
+        path.forEach(function (c) { p = p.then(function () { return flip(cell, c, FLIP_MS + Math.random() * 20); }); });
+        return p;
+      }
+      function show(name, text, offset) {
+        var cells = groups[name];
+        while (text.length < cells.length) text += ' ';
+        return Promise.all(cells.map(function (c, i) { return run(c, text.charAt(i), (offset || 0) + i * STAGGER); }));
+      }
+      function finish() {
+        Object.keys(groups).forEach(function (k) {
+          var text = FINAL[k];
+          groups[k].forEach(function (c, i) {
+            var ch = text.charAt(i) || ' '; paint(c.t, ch); paint(c.b, ch); c.cur = ch;
+            c.lt.style.visibility = c.lb.style.visibility = 'hidden';
+          });
+        });
+      }
+
+      var started = false;
+      function start() {
+        if (started) return; started = true;
+        Promise.all(['r1', 'r2', 'r3', 'r4'].map(function (k, i) { return show(k, FINAL[k], i * 260); }))
+          .catch(finish);
+      }
+      window.addEventListener('beforeprint', function () { started = halted = true; finish(); });
+
+      var fonts = document.fonts && document.fonts.ready ? Promise.race([document.fonts.ready, wait(1200)]) : wait(300);
+      fonts.then(function () {
+        if (blankStart || !('IntersectionObserver' in window)) { setTimeout(start, 200); return; }
+        var io = new IntersectionObserver(function (entries) {
+          if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); setTimeout(start, 150); }
+        }, { threshold: 0.5 });
+        io.observe(board);
+      });
+    })();
+    </script>
+
+    <ul class="hero-links">
+      <li><a href="mailto:joeystdio@gmail.com">joeystdio@gmail.com</a></li>
+      <li><a href="https://github.com/joeystdio" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/joeystevense/" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </section>
+
+  <section class="sec wrap" id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Projects</h2>
+    <div class="tt">
+      <div class="tt-head" aria-hidden="true"><span>Project</span><span>Cargo</span><span>Destination</span><span>Manifest</span></div>
+      <ul class="tt-rows">
+
+        <li class="express">
+          <details open>
+            <summary><span class="r">
+              <span class="ic"><img src="assets/loqi.png" alt="" width="56" height="56" decoding="async"></span>
+              <span class="r-name"><span class="nm">Loqi</span><span class="sub">iOS app</span></span>
+              <span class="r-cargo"><span class="vh">Cargo: </span>Meeting minutes</span>
+              <span class="r-dest"><span class="vh">Destination: </span>App Store</span>
+              <span class="tog cell" aria-hidden="true"></span>
+            </span></summary>
+            <div class="mf">
+              <div class="mf-main">
+                <p class="mf-desc">Record a meeting; get the transcript, summary and action items. Built solo: app, AI backend, subscriptions.</p>
+                <a class="act" href="https://apps.apple.com/us/app/loqi-record-transcribe/id6791486199" rel="noopener">Get it on the App Store</a>
+              </div>
+              <dl class="mf-facts">
+                <div><dt>Stack</dt><dd>React Native, Firebase, Gemini</dd></div>
+              </dl>
+            </div>
+          </details>
+        </li>
+
+        <li class="express">
+          <details>
+            <summary><span class="r">
+              <span class="ic" aria-hidden="true"><span class="mk-qfd"><span>QFD</span></span></span>
+              <span class="r-name"><span class="nm">QFD</span><span class="sub">Queue For Degenerates</span></span>
+              <span class="r-cargo"><span class="vh">Cargo: </span>Unskippable songs</span>
+              <span class="r-dest"><span class="vh">Destination: </span>A friend’s bar</span>
+              <span class="tog cell" aria-hidden="true"></span>
+            </span></summary>
+            <div class="mf">
+              <div class="mf-main">
+                <p class="mf-desc">A jukebox where nobody can skip your song. Guests queue from their own phone via QR code, no app or account. Born at a friend’s bar, where one mistap on the Spotify tablet killed the vibe.</p>
+                <p class="act-none">Walk-in only. No public link.</p>
+              </div>
+              <dl class="mf-facts">
+                <div><dt>Type</dt><dd>Web app (PWA)</dd></div>
+                <div><dt>Stack</dt><dd>Next.js, Supabase, Spotify</dd></div>
+              </dl>
+            </div>
+          </details>
+        </li>
+
+        <li class="grp">
+          <p class="grp-h">Free and open source, on Homebrew</p>
+          <ul class="grp-rows">
+            <li>
+              <details>
+                <summary><span class="r">
+                  <span class="ic"><img src="assets/envy.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>
+                  <span class="r-name"><span class="nm">Envy</span></span>
+                  <span class="r-cargo"><span class="vh">Cargo: </span>Secrets, not dotfiles</span>
+                  <span class="r-dest"><span class="vh">Destination: </span>Homebrew</span>
+                  <span class="tog cell" aria-hidden="true"></span>
+                </span></summary>
+                <div class="mf">
+                  <div class="mf-main">
+                    <p class="mf-desc">Env vars and secrets for your terminal and AI agents, per project, in the Keychain instead of dotfiles.</p>
+                    <div class="cmd" data-app="Envy"><code>brew install --cask joeystdio/<wbr>tap/<wbr>envy</code></div>
+                    <a class="act" href="https://github.com/joeystdio/envy" rel="noopener">Envy on GitHub</a>
+                  </div>
+                  <dl class="mf-facts">
+                    <div><dt>Type</dt><dd>macOS app</dd></div>
+                    <div><dt>Stack</dt><dd>Swift, SwiftUI, Keychain</dd></div>
+                  </dl>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span class="r">
+                  <span class="ic"><img src="assets/portradar.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>
+                  <span class="r-name"><span class="nm">PortRadar</span></span>
+                  <span class="r-cargo"><span class="vh">Cargo: </span>Listening ports</span>
+                  <span class="r-dest"><span class="vh">Destination: </span>Homebrew</span>
+                  <span class="tog cell" aria-hidden="true"></span>
+                </span></summary>
+                <div class="mf">
+                  <div class="mf-main">
+                    <p class="mf-desc">Every listening port in your menu bar, what’s running on it, one click to kill it.</p>
+                    <div class="cmd" data-app="PortRadar"><code>brew install --cask joeystdio/<wbr>tap/<wbr>portradar</code></div>
+                    <a class="act" href="https://github.com/joeystdio/PortRadar" rel="noopener">PortRadar on GitHub</a>
+                  </div>
+                  <dl class="mf-facts">
+                    <div><dt>Type</dt><dd>macOS menu bar app</dd></div>
+                    <div><dt>Stack</dt><dd>Swift, SwiftUI, lsof</dd></div>
+                  </dl>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span class="r">
+                  <span class="ic"><img src="assets/ghostmouse.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>
+                  <span class="r-name"><span class="nm">GhostMouse</span></span>
+                  <span class="r-cargo"><span class="vh">Cargo: </span>An awake Mac</span>
+                  <span class="r-dest"><span class="vh">Destination: </span>Homebrew</span>
+                  <span class="tog cell" aria-hidden="true"></span>
+                </span></summary>
+                <div class="mf">
+                  <div class="mf-main">
+                    <p class="mf-desc">Keeps your Mac awake without visibly moving the cursor; stops the moment you touch it.</p>
+                    <div class="cmd" data-app="GhostMouse"><code>brew install --cask joeystdio/<wbr>tap/<wbr>ghostmouse</code></div>
+                    <a class="act" href="https://github.com/joeystdio/GhostMouse" rel="noopener">GhostMouse on GitHub</a>
+                  </div>
+                  <dl class="mf-facts">
+                    <div><dt>Type</dt><dd>macOS menu bar app</dd></div>
+                    <div><dt>Stack</dt><dd>Swift, IOKit, CoreGraphics</dd></div>
+                  </dl>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <details>
+            <summary><span class="r">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 36 36" width="36" height="36" focusable="false"><rect x="1" y="8" width="34" height="20" fill="#E8532F"/><g fill="#9E3216"><rect x="5" y="11" width="2" height="14"/><rect x="10" y="11" width="2" height="14"/><rect x="15" y="11" width="2" height="14"/><rect x="20" y="11" width="2" height="14"/><rect x="25" y="11" width="2" height="14"/><rect x="30" y="11" width="2" height="14"/></g></svg></span>
+              <span class="r-name"><span class="nm">AI quote engine <span class="tag">Work</span></span></span>
+              <span class="r-cargo"><span class="vh">Cargo: </span>Messy quote emails</span>
+              <span class="r-dest"><span class="vh">Destination: </span>Production</span>
+              <span class="tog cell" aria-hidden="true"></span>
+            </span></summary>
+            <div class="mf">
+              <div class="mf-main">
+                <p class="mf-desc">Turns messy quote-request emails into ready quotations, using an LLM plus semantic search over carriers, ports and schedules.</p>
+                <p class="act-none">Crew only. Built at work, no public link.</p>
+              </div>
+              <dl class="mf-facts">
+                <div><dt>Type</dt><dd>Logistics, at work</dd></div>
+                <div><dt>Stack</dt><dd>.NET, Semantic Kernel, pgvector</dd></div>
+              </dl>
+            </div>
+          </details>
+        </li>
+
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-box reveal">
-      <h2>Let's build something.</h2>
-      <p>Open to interesting work: roles, consulting, or collaborations.
-      Got an ambitious idea? I'd love to hear it.</p>
-      <div class="cta" style="justify-content:center;">
-        <a class="btn primary" href="mailto:joeystdio@gmail.com">joeystdio@gmail.com</a>
-        <a class="btn" href="https://github.com/joeystdio" target="_blank" rel="noopener">@joeystdio on GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/joeystevense/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://buymeacoffee.com/joeystdio" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
-      </div>
+  <section class="sec wrap about" id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About</h2>
+    <div class="about-body">
+      <p>I’m a Dutch software engineer based in Bangkok, where I’ve lived and worked since late 2023. I started as a full stack developer on recruitment platforms, then built telephony systems handling thousands of calls a day, where I joined the architecture team that moved desktop software to the cloud. Since 2018 I’ve been the lead developer on worldwide logistics apps, these days from Bangkok through Iglu Thailand. Mostly .NET, Angular, and microservices on Google Cloud, with a long tail of C++, Java, and everything in between.</p>
+      <p>What’s consistent across all of it: I like hard problems, I can’t leave a good idea alone, and I ship. These days that means a meeting companion on the App Store, a jukebox that keeps the peace at my friend’s bar, and the developer tools I always wished I had. You’ll find some of it above.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="wrap foot-inner">
-    <div>© <span id="yr"></span> Joey Stevense</div>
-    <div class="mono">built with curiosity · <span class="grad-text">@joeystdio</span></div>
-  </div>
+  <section class="sec wrap" id="experience" aria-labelledby="experience-h">
+    <h2 id="experience-h">Experience</h2>
+    <ol class="route">
+      <li class="port">
+        <span class="p-year">2007</span>
+        <span class="p-stop" aria-hidden="true"></span>
+        <div class="p-head">
+          <h3 class="p-name">Recruitment</h3>
+          <p class="p-role">Full Stack Developer, Connexys (now Bullhorn)</p>
+          <p class="p-dates">2007 – 2014</p>
+        </div>
+        <p class="p-text">Built recruitment platform features, hundreds of career sites, and a Java/Solr resume-indexing engine powering a Salesforce-based product. Play! Framework, Oracle PL/SQL, and front-end.</p>
+      </li>
+      <li class="port">
+        <span class="p-year">2014</span>
+        <span class="p-stop" aria-hidden="true"></span>
+        <div class="p-head">
+          <h3 class="p-name">Telephony</h3>
+          <p class="p-role">Full Stack Developer, JDM Software (now Anywhere 365)</p>
+          <p class="p-dates">2014 – 2018</p>
+        </div>
+        <p class="p-text">Built telephony services in C++ handling thousands of calls a day, and a web-based replacement for the C++ attendant console (Angular + .NET Core on Azure Kubernetes). As part of the architecture team, helped steer the move from on-prem desktop apps to the cloud.</p>
+      </li>
+      <li class="port">
+        <span class="p-year">2018</span>
+        <span class="p-stop cargo" aria-hidden="true"></span>
+        <div class="p-head">
+          <h3 class="p-name">Logistics</h3>
+          <p class="p-role">Lead Software Developer, VBE Group</p>
+          <p class="p-dates">2018 – present</p>
+        </div>
+        <p class="p-text">Lead engineer on worldwide logistics web apps (bookings, quotes, and sailing schedules) built on an Angular + .NET microservices architecture, secured by a custom OpenID/OAuth identity server. Introduced Scrum; drive architecture, code reviews, mentoring, and CI/CD on GitHub &amp; Azure DevOps; and build its AI layer: LLM extraction, embeddings, and semantic search.</p>
+      </li>
+      <li class="port">
+        <span class="p-year">Late 2023</span>
+        <span class="p-stop here" aria-hidden="true"></span>
+        <div class="p-head">
+          <h3 class="p-name">Bangkok</h3>
+          <p class="p-role">VBE Group, via Iglu Thailand</p>
+          <p class="p-dates">Since late 2023</p>
+        </div>
+      </li>
+    </ol>
+    <p class="edu"><strong>Education:</strong> B. ICT Computer Science, Rotterdam University of Applied Sciences.</p>
+  </section>
+
+  <section class="sec wrap contact" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Contact</h2>
+    <p class="contact-lede">Open to interesting work: roles, consulting, or collaborations. Got an ambitious idea? I’d love to hear it.</p>
+    <a class="mail" href="mailto:joeystdio@gmail.com">joeystdio@gmail.com</a>
+    <ul class="c-links">
+      <li><a href="https://github.com/joeystdio" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/joeystevense/" rel="noopener">LinkedIn</a></li>
+      <li class="coffee"><a href="https://buymeacoffee.com/joeystdio" rel="noopener">Buy me a coffee</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><p>© Joey Stevense</p></div>
 </footer>
 
 <script>
-  // year
-  document.getElementById('yr').textContent = new Date().getFullYear();
+(function () {
+  /* Bangkok clock on the board */
+  var clock = document.getElementById('clock');
+  try {
+    var fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Bangkok', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+    var tick = function () { clock.textContent = fmt.format(new Date()); setTimeout(tick, 60000 - (Date.now() % 60000) + 50); };
+    tick();
+  } catch (e) {}
 
-  // typed terminal effect
-  const lines = [
-    'whoami  →  engineer, 15+ yrs, endlessly curious',
-    'ls ~/ideas  →  way too many',
-    './build.sh --idea next --ship',
-    'echo "always exploring. always building."'
-  ];
-  const el = document.getElementById('typed');
-  let li = 0, ci = 0, deleting = false;
-  function tick() {
-    const line = lines[li];
-    if (!deleting) {
-      el.textContent = line.slice(0, ci++);
-      if (ci > line.length) { deleting = true; setTimeout(tick, 1700); return; }
-    } else {
-      el.textContent = line.slice(0, ci--);
-      if (ci < 0) { deleting = false; li = (li + 1) % lines.length; ci = 0; }
-    }
-    setTimeout(tick, deleting ? 30 : 55);
-  }
-  tick();
-
-  // reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 60); io.unobserve(e.target); }
+  /* Manifest toggles: the small flap flips when someone opens or closes a row */
+  [].forEach.call(document.querySelectorAll('.tt summary'), function (s) {
+    var tog = s.querySelector('.tog');
+    s.addEventListener('click', function () {
+      tog.classList.remove('flip'); void tog.offsetWidth; tog.classList.add('flip');
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((n) => io.observe(n));
+  });
+
+  /* Copy buttons for the Homebrew install commands */
+  [].forEach.call(document.querySelectorAll('.cmd'), function (box) {
+    var code = box.querySelector('code');
+    var btn = document.createElement('button');
+    var live = document.createElement('span');
+    btn.type = 'button'; btn.className = 'copy'; btn.textContent = 'Copy';
+    btn.setAttribute('aria-label', 'Copy install command for ' + box.getAttribute('data-app'));
+    live.className = 'vh'; live.setAttribute('aria-live', 'polite');
+    btn.addEventListener('click', function () {
+      var done = function () {
+        btn.textContent = 'Copied'; live.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; live.textContent = ''; }, 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code.textContent).then(done, function () { select(code); });
+      } else { select(code); }
+    });
+    box.appendChild(btn); box.appendChild(live);
+  });
+  function select(el) {
+    var r = document.createRange(); r.selectNodeContents(el);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+
+  /* Print every manifest */
+  window.addEventListener('beforeprint', function () {
+    [].forEach.call(document.querySelectorAll('.tt details'), function (d) { d.open = true; });
+  });
+})();
 </script>
 </body>
 </html>
